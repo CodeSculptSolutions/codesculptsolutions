@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
 import { EASE_OUT_EXPO } from '@/lib/motion'
 
 type FormState = 'idle' | 'sending' | 'sent' | 'error'
@@ -120,6 +121,14 @@ export function Contact() {
                 Mandaue City, Cebu, Philippines
               </div>
             </div>
+
+            <Link
+              href="/business-card"
+              className="inline-flex items-center gap-1.5 mt-8"
+              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(74,71,81,0.45)' }}
+            >
+              Print business card →
+            </Link>
           </motion.div>
 
           {/* Right — form */}

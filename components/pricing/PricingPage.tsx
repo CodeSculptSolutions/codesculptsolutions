@@ -130,7 +130,7 @@ const SERVICES = [
         name: 'Gov / Enterprise',
         desc: 'Large-scale systems for government agencies, NGOs, or enterprise clients.',
         duration: '10–30+ weeks',
-        prices: { USD: { from: 15000 }, AUD: { from: 22500 }, PHP: { from: 850000 } } as CurrencyPrices,
+        prices: { USD: { from: 15000 }, AUD: { from: 22500 }, PHP: { from: 900000, to: 1500000 } } as CurrencyPrices,
         includes: ['Compliance-ready', 'Audit logs', 'On-premise option', 'Documentation', 'Training'],
         featured: true,
       },
