@@ -350,30 +350,31 @@ export function Hero() {
             <motion.span custom={0.3} variants={slideUp} className="block">
               We shape
             </motion.span>
-            <motion.em
-              custom={0.45}
-              variants={slideUp}
-              className="block not-italic cursor-pointer select-none"
-              style={{
-                fontFamily: "'Fraunces', Georgia, serif",
-                fontStyle: 'italic',
-                color: '#C9A9C7',
-                fontOpticalSizing: 'auto',
-                display: 'block',
-                transformOrigin: 'left center',
-              }}
-              animate={melting
-                ? { skewX: 8, skewY: 4, y: 12, scaleY: 1.12, opacity: 0.75 }
-                : { skewX: 0, skewY: 0, y: 0, scaleY: 1, opacity: 1 }
-              }
-              transition={{ duration: melting ? 0.9 : 1.4, ease: melting ? [0.25,0.46,0.45,0.94] : [0.34,1.56,0.64,1] }}
-              onPointerDown={startMelt}
-              onPointerUp={stopMelt}
-              onPointerLeave={stopMelt}
-              title="hold me"
-            >
-              software
-            </motion.em>
+            {/* Outer span handles slide-up variant, inner em handles melt — no conflict */}
+            <motion.span custom={0.45} variants={slideUp} className="block">
+              <motion.em
+                className="not-italic cursor-pointer select-none"
+                style={{
+                  fontFamily: "'Fraunces', Georgia, serif",
+                  fontStyle: 'italic',
+                  color: '#C9A9C7',
+                  fontOpticalSizing: 'auto',
+                  display: 'block',
+                  transformOrigin: 'left center',
+                }}
+                animate={melting
+                  ? { skewX: 8, skewY: 4, y: 12, scaleY: 1.12, opacity: 0.75 }
+                  : { skewX: 0, skewY: 0, y: 0, scaleY: 1, opacity: 1 }
+                }
+                transition={{ duration: melting ? 0.9 : 1.4, ease: melting ? [0.25,0.46,0.45,0.94] : [0.34,1.56,0.64,1] }}
+                onPointerDown={startMelt}
+                onPointerUp={stopMelt}
+                onPointerLeave={stopMelt}
+                title="hold me"
+              >
+                software
+              </motion.em>
+            </motion.span>
             <motion.span custom={0.6} variants={slideUp} className="block">
               with our hands.
             </motion.span>

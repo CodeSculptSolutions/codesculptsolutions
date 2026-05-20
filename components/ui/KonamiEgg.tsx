@@ -1,27 +1,29 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { EASE_OUT_EXPO } from '@/lib/motion'
 
 const SEQUENCE = [
   'ArrowUp','ArrowUp','ArrowDown','ArrowDown',
   'ArrowLeft','ArrowRight','ArrowLeft','ArrowRight',
-  'b','a',
 ]
 
 export function KonamiEgg() {
   const [active, setActive] = useState(false)
-  const [idx, setIdx] = useState(0)
+  const seqIdx = useRef(0)
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      setIdx(prev => {
-        if (e.key !== SEQUENCE[prev]) return e.key === SEQUENCE[0] ? 1 : 0
-        const next = prev + 1
-        if (next === SEQUENCE.length) { setActive(true); return 0 }
-        return next
-      })
+      if (e.key !== SEQUENCE[seqIdx.current]) {
+        seqIdx.current = e.key === SEQUENCE[0] ? 1 : 0
+        return
+      }
+      seqIdx.current += 1
+      if (seqIdx.current === SEQUENCE.length) {
+        setActive(true)
+        seqIdx.current = 0
+      }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
