@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
 import { motion, useReducedMotion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { EASE_OUT_EXPO } from '@/lib/motion'
 
@@ -12,6 +12,27 @@ function StudioComposition() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [splats, setSplats] = useState<Splat[]>([])
   const splatIdRef = useRef(0)
+  const [idle, setIdle] = useState(false)
+  const idleTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const resetIdle = useCallback(() => {
+    setIdle(false)
+    if (idleTimer.current) clearTimeout(idleTimer.current)
+    idleTimer.current = setTimeout(() => setIdle(true), 30000)
+  }, [])
+
+  useEffect(() => {
+    resetIdle()
+    window.addEventListener('mousemove', resetIdle)
+    window.addEventListener('keydown', resetIdle)
+    window.addEventListener('click', resetIdle)
+    return () => {
+      if (idleTimer.current) clearTimeout(idleTimer.current)
+      window.removeEventListener('mousemove', resetIdle)
+      window.removeEventListener('keydown', resetIdle)
+      window.removeEventListener('click', resetIdle)
+    }
+  }, [resetIdle])
 
   /* ── Parallax spring values ── */
   const rawX = useMotionValue(0)
@@ -68,8 +89,11 @@ function StudioComposition() {
         xmlns="http://www.w3.org/2000/svg"
         className="w-full max-w-[520px] md:max-w-none md:w-[50vw] max-h-[80vh] cursor-crosshair select-none"
         initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.1, delay: 0.45, ease: EASE_OUT_EXPO }}
+        animate={idle
+          ? { opacity: 0.7, y: 16, rotate: 3, scale: 0.96 }
+          : { opacity: 1, y: 0, rotate: 0, scale: 1 }
+        }
+        transition={{ duration: idle ? 3 : 1.8, ease: 'easeInOut', ...(idle ? {} : { delay: 0 }) }}
         onClick={handleClick}
         aria-hidden="true"
       >
@@ -264,6 +288,18 @@ function StudioComposition() {
 }
 
 export function Hero() {
+  const [melting, setMelting] = useState(false)
+  const meltTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const startMelt = () => {
+    meltTimer.current = setTimeout(() => setMelting(true), 600)
+  }
+  const stopMelt = () => {
+    if (meltTimer.current) clearTimeout(meltTimer.current)
+    if (melting) setTimeout(() => setMelting(false), 1200)
+    else setMelting(false)
+  }
+
   const slideUp = {
     hidden: { opacity: 0, y: 40 },
     visible: (delay: number) => ({
@@ -317,13 +353,24 @@ export function Hero() {
             <motion.em
               custom={0.45}
               variants={slideUp}
-              className="block not-italic"
+              className="block not-italic cursor-pointer select-none"
               style={{
                 fontFamily: "'Fraunces', Georgia, serif",
                 fontStyle: 'italic',
                 color: '#C9A9C7',
                 fontOpticalSizing: 'auto',
+                display: 'block',
+                transformOrigin: 'left center',
               }}
+              animate={melting
+                ? { skewX: 8, skewY: 4, y: 12, scaleY: 1.12, opacity: 0.75 }
+                : { skewX: 0, skewY: 0, y: 0, scaleY: 1, opacity: 1 }
+              }
+              transition={{ duration: melting ? 0.9 : 1.4, ease: melting ? [0.25,0.46,0.45,0.94] : [0.34,1.56,0.64,1] }}
+              onPointerDown={startMelt}
+              onPointerUp={stopMelt}
+              onPointerLeave={stopMelt}
+              title="hold me"
             >
               software
             </motion.em>

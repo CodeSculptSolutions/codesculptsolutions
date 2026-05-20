@@ -1,4 +1,5 @@
 import { Nav } from '@/components/nav/Nav'
+import { KonamiEgg } from '@/components/ui/KonamiEgg'
 import { Hero } from '@/components/hero/Hero'
 import { About } from '@/components/about/About'
 import { Services } from '@/components/services/Services'
@@ -11,6 +12,7 @@ import { Footer } from '@/components/footer/Footer'
 export default function Home() {
   return (
     <main>
+      <KonamiEgg />
       <Nav />
       <Hero />
       <About />
