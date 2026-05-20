@@ -316,7 +316,7 @@ export function Hero() {
     >
       {/* Studio log — below nav */}
       <motion.div
-        className="absolute top-24 right-10 md:right-54 text-ink-soft"
+        className="hidden md:block absolute top-24 right-10 md:right-54 text-ink-soft"
         style={{
           fontFamily: "'JetBrains Mono', monospace",
           fontSize: '10px',
@@ -433,8 +433,10 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right — studio composition */}
-        <StudioComposition />
+        {/* Right — studio composition (desktop only) */}
+        <div className="hidden md:block">
+          <StudioComposition />
+        </div>
       </div>
 
       {/* Subtle bottom fade */}

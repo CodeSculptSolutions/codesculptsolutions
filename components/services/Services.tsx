@@ -192,7 +192,7 @@ function ServiceEntry({ service, index, isInView }: ServiceEntryProps) {
 
   return (
     <motion.div
-      className="group grid grid-cols-1 md:grid-cols-[260px_1fr] gap-10 md:gap-16 py-16 border-t border-ink/10"
+      className="group grid grid-cols-1 md:grid-cols-[260px_1fr] gap-6 md:gap-16 py-10 md:py-16 border-t border-ink/10"
       initial={{ opacity: 0, y: 48 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: EASE_OUT_EXPO, delay: index * 0.12 }}
@@ -201,7 +201,7 @@ function ServiceEntry({ service, index, isInView }: ServiceEntryProps) {
     >
       {/* Left — blob with illustration inside */}
       <div className="flex items-center justify-center md:justify-start">
-        <div className="relative w-[240px] h-[240px]" aria-hidden="true">
+        <div className="relative w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] md:w-[240px] md:h-[240px]" aria-hidden="true">
           {/* Organic blob background */}
           <motion.svg
             viewBox={service.viewBox}
@@ -279,7 +279,7 @@ export function Services() {
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="services" ref={ref} className="py-24 md:py-40" aria-labelledby="services-heading">
+    <section id="services" ref={ref} className="py-14 md:py-40" aria-labelledby="services-heading">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
         <motion.div
           className="mb-16"

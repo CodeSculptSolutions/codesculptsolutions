@@ -59,7 +59,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" ref={ref} className="py-24 md:py-40" aria-labelledby="contact-heading">
+    <section id="contact" ref={ref} className="py-14 md:py-40" aria-labelledby="contact-heading">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
 
@@ -162,7 +162,7 @@ export function Contact() {
                   exit={{ opacity: 0 }}
                 >
                   {/* Name + Email row */}
-                  <div className="grid grid-cols-2 gap-6 mb-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                     <div>
                       <label htmlFor="name" style={labelStyle}>Name</label>
                       <input

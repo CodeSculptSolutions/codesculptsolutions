@@ -90,7 +90,7 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="about" ref={ref} className="py-28 md:py-44" aria-labelledby="about-heading">
+    <section id="about" ref={ref} className="py-16 md:py-44" aria-labelledby="about-heading">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
 
         {/* ── Section label ── */}
@@ -233,6 +233,7 @@ export function About() {
             {TECH_PARAS.map((para, pi) => (
               <p
                 key={pi}
+                className={pi >= 2 ? 'hidden md:block' : undefined}
                 style={{
                   fontFamily: "'Manrope', system-ui, sans-serif",
                   fontSize: '15px',

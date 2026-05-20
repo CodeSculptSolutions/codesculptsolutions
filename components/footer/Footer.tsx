@@ -3,12 +3,6 @@
 import { motion } from 'framer-motion'
 import { EASE_OUT_EXPO } from '@/lib/motion'
 
-const SOCIALS = [
-  { label: 'GitHub', href: 'https://github.com/jakelourencevillar' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jake-lourence-villar' },
-  { label: 'Dribbble', href: 'https://dribbble.com/jakelourencevillar' },
-]
-
 export function Footer() {
   return (
     <footer
@@ -42,32 +36,6 @@ export function Footer() {
               Built with Code. Crafted with Purpose.
             </em>
           </div>
-
-          {/* Center — social links */}
-          <nav aria-label="Social links">
-            <ul className="flex items-center gap-6" role="list">
-              {SOCIALS.map((s, i) => (
-                <li key={s.label} className="flex items-center gap-6">
-                  {i > 0 && (
-                    <span className="text-ink-soft opacity-30" aria-hidden="true">/</span>
-                  )}
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="squiggle-link text-ink-soft hover:text-ink transition-colors duration-200"
-                    style={{
-                      fontFamily: "'General Sans', system-ui, sans-serif",
-                      fontWeight: 500,
-                      fontSize: '13px',
-                    }}
-                  >
-                    {s.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
 
           {/* Right — copyright + build info */}
           <div className="flex flex-col items-start md:items-end gap-1">

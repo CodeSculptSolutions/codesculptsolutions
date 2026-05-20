@@ -306,7 +306,7 @@ export function Notes() {
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="notes" ref={ref} className="py-24 md:py-40" aria-labelledby="notes-heading">
+    <section id="notes" ref={ref} className="py-14 md:py-40" aria-labelledby="notes-heading">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
         <div className="flex items-baseline justify-between mb-14 flex-wrap gap-4">
           <motion.h2
@@ -343,7 +343,7 @@ export function Notes() {
           {NOTES.map((note, i) => (
             <motion.div
               key={note.id}
-              className={`p-8 rounded-sm ${note.span}`}
+              className={`p-6 md:p-8 rounded-sm ${note.span}${note.id === 'code-snippet' ? ' hidden md:block' : ''}`}
               style={{ backgroundColor: note.bg, border: note.border || 'none' }}
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}

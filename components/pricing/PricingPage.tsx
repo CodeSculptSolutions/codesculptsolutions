@@ -47,7 +47,7 @@ const SERVICES = [
         name: 'Full Platform',
         desc: 'Production-grade platform with advanced features, integrations, and cloud infrastructure.',
         duration: '8–20 weeks',
-        prices: { USD: { from: 12000 }, AUD: { from: 18000 }, PHP: { from: 680000 } } as CurrencyPrices,
+        prices: { USD: { from: 18000 }, AUD: { from: 27000 }, PHP: { from: 800000, to: 1000000 } } as CurrencyPrices,
         includes: ['Custom AWS infra', 'CI/CD pipelines', 'Multi-role RBAC', 'Payments + billing', 'Analytics + logging'],
         featured: true,
       },
@@ -233,7 +233,7 @@ function CurrencyBadge({ current, onChange }: { current: Currency; onChange: (c:
 function TierCard({ tier, currency, accent }: { tier: typeof SERVICES[0]['tiers'][0]; currency: Currency; accent: string }) {
   return (
     <div
-      className="relative flex flex-col p-6 rounded-sm"
+      className="relative flex flex-col p-4 md:p-6 rounded-sm"
       style={{
         backgroundColor: tier.featured ? '#1B1A1F' : '#F4EFE6',
         border: tier.featured ? 'none' : '1px solid rgba(27,26,31,0.1)',
@@ -374,7 +374,7 @@ export function PricingPage() {
       <main className="max-w-[1440px] mx-auto px-8 md:px-16">
 
         {/* ── Hero ── */}
-        <div className="pt-20 pb-16 border-b" style={{ borderColor: 'rgba(27,26,31,0.1)' }}>
+        <div className="pt-12 pb-10 md:pt-20 md:pb-16 border-b" style={{ borderColor: 'rgba(27,26,31,0.1)' }}>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

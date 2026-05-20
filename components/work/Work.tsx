@@ -389,7 +389,7 @@ export function Work() {
   )
 
   return (
-    <section id="work" ref={ref} className="py-24 md:py-40" aria-labelledby="work-heading">
+    <section id="work" ref={ref} className="py-14 md:py-40" aria-labelledby="work-heading">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
@@ -419,9 +419,9 @@ export function Work() {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, ease: EASE_OUT_EXPO, delay: 0.2 }}
           >
-            <ul className="flex items-center" role="list">
+            <ul className="flex items-center overflow-x-auto pb-1 gap-0" role="list" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
               {FILTERS.map((f, i) => (
-                <li key={f} className="flex items-center">
+                <li key={f} className="flex items-center flex-shrink-0">
                   {i > 0 && <span className="mx-2.5 text-ink-soft opacity-30" aria-hidden="true">/</span>}
                   <button
                     onClick={() => setActiveFilter(f)}
