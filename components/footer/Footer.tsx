@@ -69,13 +69,16 @@ export function Footer() {
             </ul>
           </nav>
 
-          {/* Right — copyright + hidden pot */}
-          <div className="flex items-center gap-4">
+          {/* Right — copyright + build info */}
+          <div className="flex flex-col items-start md:items-end gap-1">
             <span
               className="text-ink-soft"
               style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', letterSpacing: '0.06em' }}
             >
               © {new Date().getFullYear()} Jake Lourence A. Villar
+            </span>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', letterSpacing: '0.05em', color: 'rgba(74,71,81,0.45)' }}>
+              Next.js 16 · TypeScript · Framer Motion · Vercel
             </span>
           </div>
         </div>

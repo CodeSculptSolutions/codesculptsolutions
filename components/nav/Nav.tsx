@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { LogoMark } from '@/components/ui/LogoMark'
 
 const NAV_ITEMS = [
   { label: 'About', href: '#about' },
@@ -67,36 +68,25 @@ export function Nav() {
         <a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-          className="flex items-center gap-1 focus-visible:outline-none"
+          className="flex items-center gap-2.5 focus-visible:outline-none group"
           aria-label="CodeSculptSolutions — home"
         >
+          <motion.div
+            className="flex items-center"
+            style={{ gap: '2px' }}
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.92, rotate: -5 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 10 }}
+          >
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", color: '#4A4751', fontSize: '14px', lineHeight: 1, userSelect: 'none' }}>{'<'}</span>
+            <LogoMark size={18} animated={false} variant="compact" />
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", color: '#4A4751', fontSize: '14px', lineHeight: 1, userSelect: 'none' }}>{'>'}</span>
+          </motion.div>
           <span
-            className="text-ink font-semibold tracking-tight text-[15px]"
-            style={{ fontFamily: "'General Sans', system-ui, sans-serif" }}
+            className="text-ink font-semibold text-[14px]"
+            style={{ fontFamily: "'General Sans', system-ui, sans-serif", letterSpacing: '-0.02em' }}
           >
-            Code
-          </span>
-          {/* Clay blob glyph replacing "S" in Sculpt — click to wobble */}
-          <motion.svg
-            width="14" height="18" viewBox="0 0 14 18" fill="none" aria-hidden="true"
-            className="relative top-[-1px] cursor-pointer"
-            whileHover={{ rotate: -12, scale: 1.3 }}
-            whileTap={{ rotate: [0, -20, 18, -10, 0], scale: [1, 1.4, 1.2, 1.3, 1] }}
-            transition={{ type: 'spring', stiffness: 260, damping: 12 }}
-          >
-            <path
-              d="M7,2 C10,1 13,3 13,6 C13,9 10,10 7,10 C4,10 1,11 1,14 C1,16.5 3.5,17 7,17 C10.5,17 13,16 13,14"
-              stroke="#C9A9C7"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              fill="none"
-            />
-          </motion.svg>
-          <span
-            className="text-ink font-semibold tracking-tight text-[15px]"
-            style={{ fontFamily: "'General Sans', system-ui, sans-serif" }}
-          >
-            culptSolutions
+            CodeSculptSolutions
           </span>
         </a>
 
@@ -109,7 +99,7 @@ export function Nav() {
               <li key={item.href}>
                 <button
                   onClick={() => handleNavClick(item.href)}
-                  className={`text-[13px] font-medium transition-colors duration-200 focus-visible:outline-none ${
+                  className={`squiggle-link text-[13px] font-medium transition-colors duration-200 focus-visible:outline-none ${
                     isActive ? 'text-ink nav-active' : 'text-ink-soft hover:text-ink'
                   }`}
                   style={{ fontFamily: "'General Sans', system-ui, sans-serif", letterSpacing: '0.01em' }}

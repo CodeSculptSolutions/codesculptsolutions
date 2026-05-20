@@ -334,6 +334,16 @@ export function Hero() {
       <div className="max-w-[1440px] mx-auto px-8 md:px-16 w-full grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-12 md:gap-20 lg:gap-32 items-center">
         {/* Left — headline */}
         <div className="relative z-10 md:max-w-[580px]">
+          <motion.div
+            className="mb-5 flex items-center gap-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: EASE_OUT_EXPO }}
+          >
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#C9A9C7', letterSpacing: '0.04em' }}>~/studio</span>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: 'rgba(74,71,81,0.4)', letterSpacing: '0.04em' }}>·</span>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#4A4751', letterSpacing: '0.04em' }}>available for new projects</span>
+          </motion.div>
           <motion.h1
             className="mb-8"
             style={{

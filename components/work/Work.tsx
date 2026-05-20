@@ -123,6 +123,7 @@ const PROJECTS = [
     name: 'Budqo',
     subtitle: 'Our product',
     description: 'A cross-platform personal finance app — smart budgeting, expense tracking, and financial insights. Ships to iOS and Google Play.',
+    stack: ['React Native', 'Expo 53', 'TypeScript', 'Supabase'],
     tags: ['Product', 'Mobile', 'React Native'],
     filter: ['Mobile'] as FilterKey[],
     href: 'https://budqo.com/',
@@ -136,6 +137,7 @@ const PROJECTS = [
     name: 'Kando',
     subtitle: 'Raykan Technologies',
     description: 'End-to-end product design — user research, wireframes, prototypes, and a full design system. UI/UX lead from zero to launch.',
+    stack: ['Figma', 'Design Systems', 'Prototyping'],
     tags: ['Client', 'UI/UX', 'Figma', 'Design System'],
     filter: ['UI/UX'] as FilterKey[],
     href: 'https://www.raykan.co/kando/',
@@ -149,6 +151,7 @@ const PROJECTS = [
     name: 'B2B Portal',
     subtitle: 'Minokode',
     description: 'B2B e-commerce portal with complex catalog management, ordering flows, and account structures for business buyers.',
+    stack: ['Next.js', 'TypeScript', 'Node.js', 'Stripe'],
     tags: ['Partner', 'Web', 'E-commerce'],
     filter: ['Web'] as FilterKey[],
     href: 'https://minokode.com/',
@@ -162,6 +165,7 @@ const PROJECTS = [
     name: 'Lenders',
     subtitle: 'Fintech client · NDA',
     description: 'A mobile lending platform handling loan origination, approval workflows, and repayment tracking. Details on a call.',
+    stack: ['React Native', 'Expo', 'TypeScript', 'Fintech APIs'],
     tags: ['Confidential', 'Mobile', 'Fintech'],
     filter: ['Mobile'] as FilterKey[],
     href: null,
@@ -175,6 +179,7 @@ const PROJECTS = [
     name: 'Centralized System',
     subtitle: 'City Gov. of Mandaue · NDA',
     description: 'Internal platform replacing paper processes across city government offices. Document workflows, inter-office routing. Active deployment.',
+    stack: ['Next.js', 'PostgreSQL', 'Python', 'Docker'],
     tags: ['Confidential', 'Systems', 'Government'],
     filter: ['Systems', 'Web'] as FilterKey[],
     href: null,
@@ -188,6 +193,7 @@ const PROJECTS = [
     name: 'Shopped',
     subtitle: 'Pre-launch · NDA',
     description: 'Consumer e-commerce platform in pre-launch. Built end-to-end — storefront, admin, payments. Details on request.',
+    stack: ['Next.js', 'Supabase', 'Stripe', 'TypeScript'],
     tags: ['Confidential', 'Web', 'E-commerce'],
     filter: ['Web'] as FilterKey[],
     href: null,
@@ -321,6 +327,22 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
         }}>
           {project.description}
         </p>
+
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {project.stack.map((tech) => (
+            <span key={tech} style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '10px',
+              letterSpacing: '0.04em',
+              color: '#4A4751',
+              backgroundColor: 'rgba(27,26,31,0.06)',
+              padding: '2px 6px',
+              borderRadius: '2px',
+            }}>
+              {tech}
+            </span>
+          ))}
+        </div>
 
         <div className="flex flex-wrap gap-x-1.5 gap-y-1 pt-1">
           {project.tags.map((tag, i) => (

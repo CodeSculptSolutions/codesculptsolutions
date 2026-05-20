@@ -34,28 +34,28 @@ export function Contact() {
     }
   }
 
-  const inputStyle = {
+  const fieldBase: React.CSSProperties = {
     fontFamily: "'Manrope', system-ui, sans-serif",
     fontSize: '15px',
     backgroundColor: 'transparent',
     border: 'none',
-    borderBottom: '1px solid rgba(27,26,31,0.2)',
+    borderBottom: '1px solid rgba(27,26,31,0.15)',
     borderRadius: 0,
-    padding: '10px 0',
+    padding: '12px 0',
     color: '#1B1A1F',
     outline: 'none',
     width: '100%',
-    transition: 'border-color 0.2s ease',
+    transition: 'border-color 0.25s ease',
   }
 
-  const labelStyle = {
+  const labelStyle: React.CSSProperties = {
     fontFamily: "'JetBrains Mono', monospace",
     fontSize: '10px',
     letterSpacing: '0.1em',
-    textTransform: 'uppercase' as const,
+    textTransform: 'uppercase',
     color: '#4A4751',
     display: 'block',
-    marginBottom: '4px',
+    marginBottom: '6px',
   }
 
   return (
@@ -132,64 +132,37 @@ export function Contact() {
               {state === 'sent' ? (
                 <motion.div
                   key="success"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4, ease: EASE_OUT_EXPO }}
-                  className="flex flex-col items-start gap-4 py-8"
+                  transition={{ duration: 0.5, ease: EASE_OUT_EXPO }}
+                  className="flex flex-col items-start gap-5 py-8"
                 >
-                  {/* Hand-drawn checkmark */}
-                  <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
-                    <circle cx="28" cy="28" r="26" stroke="#C9A9C7" strokeWidth="1.5" fill="none" />
-                    <path d="M16,28 C20,32 24,36 28,34 C32,32 38,22 44,18" stroke="#1B1A1F" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <path
+                      d="M10,24 C16,30 20,34 24,32 C28,30 34,20 40,16"
+                      stroke="#C9A9C7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"
+                    />
+                    <circle cx="24" cy="24" r="22" stroke="rgba(201,169,199,0.25)" strokeWidth="1" fill="none" />
                   </svg>
-                  <p
-                    style={{ fontFamily: "'General Sans', system-ui, sans-serif", fontWeight: 600, fontSize: '24px', letterSpacing: '-0.02em', color: '#1B1A1F' }}
-                  >
-                    Got it. Talk soon.
+                  <p style={{ fontFamily: "'General Sans', system-ui, sans-serif", fontWeight: 600, fontSize: '26px', letterSpacing: '-0.02em', color: '#1B1A1F', lineHeight: 1.1 }}>
+                    Got it.<br />Talk soon.
                   </p>
-                  <p
-                    className="text-ink-soft"
-                    style={{ fontFamily: "'Manrope', system-ui, sans-serif", fontSize: '15px' }}
-                  >
-                    I&apos;ll be in touch within a couple of days.
+                  <p style={{ fontFamily: "'Manrope', system-ui, sans-serif", fontSize: '15px', color: '#4A4751', lineHeight: 1.7 }}>
+                    I&apos;ll be in touch within a couple of days.<br />
+                    Check your inbox — you should have a reply from the studio.
                   </p>
                 </motion.div>
               ) : (
                 <motion.form
                   key="form"
                   onSubmit={handleSubmit}
-                  className="space-y-8"
+                  className="space-y-0"
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                 >
-                  <div>
-                    <label htmlFor="message" style={labelStyle}>
-                      Tell me about what you&apos;re making
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      required
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      placeholder="A mobile app for tracking plant care. A web platform for our nonprofit. An internal tool that replaces a spreadsheet we've been hating for three years."
-                      style={{
-                        ...inputStyle,
-                        borderBottom: 'none',
-                        border: '1px solid rgba(27,26,31,0.15)',
-                        padding: '12px',
-                        borderRadius: '2px',
-                        resize: 'vertical',
-                        minHeight: '120px',
-                      }}
-                      onFocus={(e) => { e.currentTarget.style.borderColor = '#C9A9C7' }}
-                      onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(27,26,31,0.15)' }}
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-6">
+                  {/* Name + Email row */}
+                  <div className="grid grid-cols-2 gap-6 mb-8">
                     <div>
                       <label htmlFor="name" style={labelStyle}>Name</label>
                       <input
@@ -200,9 +173,9 @@ export function Contact() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Your name"
-                        style={inputStyle}
+                        style={fieldBase}
                         onFocus={(e) => { e.currentTarget.style.borderBottomColor = '#C9A9C7' }}
-                        onBlur={(e) => { e.currentTarget.style.borderBottomColor = 'rgba(27,26,31,0.2)' }}
+                        onBlur={(e) => { e.currentTarget.style.borderBottomColor = 'rgba(27,26,31,0.15)' }}
                       />
                     </div>
                     <div>
@@ -215,42 +188,81 @@ export function Contact() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="you@example.com"
-                        style={inputStyle}
+                        style={fieldBase}
                         onFocus={(e) => { e.currentTarget.style.borderBottomColor = '#C9A9C7' }}
-                        onBlur={(e) => { e.currentTarget.style.borderBottomColor = 'rgba(27,26,31,0.2)' }}
+                        onBlur={(e) => { e.currentTarget.style.borderBottomColor = 'rgba(27,26,31,0.15)' }}
                       />
                     </div>
                   </div>
 
-                  {state === 'error' && (
-                    <p
-                      style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '12px', color: '#F0B8A8' }}
-                    >
-                      Something went wrong. Try emailing directly at hello@codesculptsolutions.com
-                    </p>
-                  )}
+                  {/* Message — full width, underline only */}
+                  <div className="mb-12">
+                    <label htmlFor="message" style={labelStyle}>
+                      What are you making?
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      required
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder="A mobile app for tracking plant care. A web platform for our nonprofit. An internal tool that replaces a spreadsheet we've been hating for three years."
+                      style={{
+                        ...fieldBase,
+                        resize: 'none',
+                        paddingTop: '14px',
+                        lineHeight: '1.7',
+                      }}
+                      onFocus={(e) => { e.currentTarget.style.borderBottomColor = '#C9A9C7' }}
+                      onBlur={(e) => { e.currentTarget.style.borderBottomColor = 'rgba(27,26,31,0.15)' }}
+                    />
+                  </div>
 
-                  <button
-                    type="submit"
-                    disabled={state === 'sending'}
-                    className="squiggle-link group inline-flex items-center gap-2 text-ink"
-                    style={{
-                      fontFamily: "'General Sans', system-ui, sans-serif",
-                      fontWeight: 500,
-                      fontSize: '16px',
-                      letterSpacing: '-0.01em',
-                      background: 'none',
-                      border: 'none',
-                      cursor: state === 'sending' ? 'wait' : 'pointer',
-                      padding: 0,
-                      opacity: state === 'sending' ? 0.5 : 1,
-                    }}
-                  >
-                    {state === 'sending' ? 'Sending...' : 'Send it'}
-                    <span className="inline-block transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">
-                      →
-                    </span>
-                  </button>
+                  {/* Submit row */}
+                  <div className="flex items-center gap-6 flex-wrap">
+                    <motion.button
+                      type="submit"
+                      disabled={state === 'sending'}
+                      className="group inline-flex items-center gap-3"
+                      style={{
+                        fontFamily: "'General Sans', system-ui, sans-serif",
+                        fontWeight: 600,
+                        fontSize: '15px',
+                        letterSpacing: '-0.01em',
+                        backgroundColor: '#1B1A1F',
+                        color: '#F4EFE6',
+                        border: 'none',
+                        borderRadius: '3px',
+                        padding: '14px 28px',
+                        cursor: state === 'sending' ? 'wait' : 'pointer',
+                        opacity: state === 'sending' ? 0.6 : 1,
+                      }}
+                      whileHover={state !== 'sending' ? { backgroundColor: '#C9A9C7', color: '#1B1A1F' } : {}}
+                      whileTap={state !== 'sending' ? { scale: 0.97 } : {}}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {state === 'sending' ? 'Sending…' : 'Send it'}
+                      <motion.span
+                        aria-hidden="true"
+                        animate={state === 'sending' ? { x: [0, 4, 0] } : {}}
+                        transition={{ duration: 0.8, repeat: Infinity }}
+                        className="group-hover:translate-x-1 transition-transform duration-200"
+                      >
+                        →
+                      </motion.span>
+                    </motion.button>
+
+                    {state === 'error' ? (
+                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#F0B8A8', letterSpacing: '0.04em' }}>
+                        Something went wrong — try hello@codesculptsolutions.com
+                      </span>
+                    ) : (
+                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#4A4751', letterSpacing: '0.04em' }}>
+                        Usually reply within 2 days
+                      </span>
+                    )}
+                  </div>
                 </motion.form>
               )}
             </AnimatePresence>

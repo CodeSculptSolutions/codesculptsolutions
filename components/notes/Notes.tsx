@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, useState, useEffect, useMemo } from 'react'
 import { EASE_OUT_EXPO } from '@/lib/motion'
 
 const mono = { fontFamily: "'JetBrains Mono', monospace" }
@@ -9,6 +9,189 @@ const sans = { fontFamily: "'Manrope', system-ui, sans-serif" }
 const serif = { fontFamily: "'Fraunces', Georgia, serif" }
 const label = { ...mono, fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase' as const }
 const codeChip = { ...mono, fontSize: '12px', backgroundColor: '#D4C9BB', padding: '1px 5px', borderRadius: '2px', color: '#1B1A1F' }
+
+// VSCode Dark+ palette
+const K  = '#569cd6'
+const F  = '#dcdcaa'
+const P  = '#9cdcfe'
+const TY = '#4ec9b0'
+const NN = '#b5cea8'
+const D  = '#d4d4d4'
+const SS = '#ce9178'
+
+type Tok = { t: string; c: string }
+
+const HOOKS: { label: string; tokens: Tok[] }[] = [
+  {
+    label: 'Hook I reach for constantly',
+    tokens: [
+      { t: 'function ', c: K }, { t: 'useDebounce', c: F },
+      { t: '<', c: D }, { t: 'T', c: TY }, { t: '>(\n  ', c: D },
+      { t: 'value', c: P }, { t: ': ', c: D }, { t: 'T', c: TY },
+      { t: ',\n  ', c: D }, { t: 'delay', c: P }, { t: ' = ', c: D },
+      { t: '300', c: NN }, { t: '\n): ', c: D }, { t: 'T', c: TY },
+      { t: ' {\n  ', c: D }, { t: 'const', c: K }, { t: ' [', c: D },
+      { t: 'v', c: P }, { t: ', ', c: D }, { t: 'setV', c: F },
+      { t: '] = useState(', c: D }, { t: 'value', c: P }, { t: ')\n  ', c: D },
+      { t: 'useEffect', c: F }, { t: '(() => {\n    ', c: D },
+      { t: 'const', c: K }, { t: ' ', c: D }, { t: 't', c: P },
+      { t: ' = setTimeout(\n      () => ', c: D }, { t: 'setV', c: F },
+      { t: '(', c: D }, { t: 'value', c: P }, { t: '), ', c: D },
+      { t: 'delay', c: P }, { t: '\n    )\n    ', c: D },
+      { t: 'return', c: K }, { t: ' () => clearTimeout(', c: D },
+      { t: 't', c: P }, { t: ')\n  }, [', c: D }, { t: 'value', c: P },
+      { t: ', ', c: D }, { t: 'delay', c: P }, { t: '])\n  ', c: D },
+      { t: 'return', c: K }, { t: ' ', c: D }, { t: 'v', c: P },
+      { t: '\n}', c: D },
+    ],
+  },
+  {
+    label: 'Another one I always bring',
+    tokens: [
+      { t: 'function ', c: K }, { t: 'useLocalStorage', c: F },
+      { t: '<', c: D }, { t: 'T', c: TY }, { t: '>(\n  ', c: D },
+      { t: 'key', c: P }, { t: ': ', c: D }, { t: 'string', c: TY },
+      { t: ',\n  ', c: D }, { t: 'init', c: P }, { t: ': ', c: D },
+      { t: 'T', c: TY }, { t: '\n): [', c: D }, { t: 'T', c: TY },
+      { t: ', (', c: D }, { t: 'v', c: P }, { t: ': ', c: D },
+      { t: 'T', c: TY }, { t: ') => ', c: D }, { t: 'void', c: K },
+      { t: '] {\n  ', c: D }, { t: 'const', c: K }, { t: ' [', c: D },
+      { t: 'val', c: P }, { t: ', ', c: D }, { t: 'setVal', c: F },
+      { t: '] = useState<', c: D }, { t: 'T', c: TY },
+      { t: '>(() => {\n    ', c: D }, { t: 'const', c: K },
+      { t: ' ', c: D }, { t: 'raw', c: P },
+      { t: ' = localStorage.', c: D }, { t: 'getItem', c: F },
+      { t: '(', c: D }, { t: 'key', c: P }, { t: ')\n    ', c: D },
+      { t: 'return', c: K }, { t: ' ', c: D }, { t: 'raw', c: P },
+      { t: ' ? JSON.', c: D }, { t: 'parse', c: F }, { t: '(', c: D },
+      { t: 'raw', c: P }, { t: ') ', c: D }, { t: 'as', c: K },
+      { t: ' ', c: D }, { t: 'T', c: TY }, { t: ' : ', c: D },
+      { t: 'init', c: P }, { t: '\n  })\n  ', c: D },
+      { t: 'const', c: K }, { t: ' ', c: D }, { t: 'save', c: F },
+      { t: ' = (', c: D }, { t: 'v', c: P }, { t: ': ', c: D },
+      { t: 'T', c: TY }, { t: ') => {\n    ', c: D },
+      { t: 'setVal', c: F }, { t: '(', c: D }, { t: 'v', c: P },
+      { t: ')\n    localStorage.', c: D }, { t: 'setItem', c: F },
+      { t: '(\n      ', c: D }, { t: 'key', c: P },
+      { t: ', JSON.', c: D }, { t: 'stringify', c: F },
+      { t: '(', c: D }, { t: 'v', c: P },
+      { t: ')\n    )\n  }\n  ', c: D },
+      { t: 'return', c: K }, { t: ' [', c: D }, { t: 'val', c: P },
+      { t: ', ', c: D }, { t: 'save', c: F }, { t: ']\n}', c: D },
+    ],
+  },
+  {
+    label: 'The classic UI pattern',
+    tokens: [
+      { t: 'function ', c: K }, { t: 'useOnClickOutside', c: F },
+      { t: '(\n  ', c: D }, { t: 'ref', c: P },
+      { t: ': RefObject<', c: D }, { t: 'Element', c: TY },
+      { t: '>,\n  ', c: D }, { t: 'cb', c: P },
+      { t: ': () => ', c: D }, { t: 'void', c: K },
+      { t: '\n) {\n  ', c: D }, { t: 'useEffect', c: F },
+      { t: '(() => {\n    ', c: D }, { t: 'const', c: K },
+      { t: ' ', c: D }, { t: 'fn', c: F }, { t: ' = (', c: D },
+      { t: 'e', c: P }, { t: ': ', c: D }, { t: 'MouseEvent', c: TY },
+      { t: ') =>\n      !', c: D }, { t: 'ref', c: P },
+      { t: '.current?.', c: D }, { t: 'contains', c: F },
+      { t: '(\n        ', c: D }, { t: 'e', c: P },
+      { t: '.target ', c: D }, { t: 'as', c: K }, { t: ' ', c: D },
+      { t: 'Node', c: TY }, { t: '\n      ) && ', c: D },
+      { t: 'cb', c: P }, { t: '()\n    document.', c: D },
+      { t: 'addEventListener', c: F }, { t: '(', c: D },
+      { t: "'mousedown'", c: SS }, { t: ', ', c: D },
+      { t: 'fn', c: F }, { t: ')\n    ', c: D },
+      { t: 'return', c: K }, { t: ' () =>\n      document.', c: D },
+      { t: 'removeEventListener', c: F }, { t: '(', c: D },
+      { t: "'mousedown'", c: SS }, { t: ', ', c: D },
+      { t: 'fn', c: F }, { t: ')\n  }, [', c: D },
+      { t: 'ref', c: P }, { t: ', ', c: D }, { t: 'cb', c: P },
+      { t: '])\n}', c: D },
+    ],
+  },
+  {
+    label: 'Simple but powerful',
+    tokens: [
+      { t: 'function ', c: K }, { t: 'usePrevious', c: F },
+      { t: '<', c: D }, { t: 'T', c: TY }, { t: '>(\n  ', c: D },
+      { t: 'value', c: P }, { t: ': ', c: D }, { t: 'T', c: TY },
+      { t: '\n): ', c: D }, { t: 'T', c: TY }, { t: ' | ', c: D },
+      { t: 'undefined', c: K }, { t: ' {\n  ', c: D },
+      { t: 'const', c: K }, { t: ' ', c: D }, { t: 'ref', c: P },
+      { t: ' = useRef<', c: D }, { t: 'T', c: TY },
+      { t: '>()\n  ', c: D }, { t: 'useEffect', c: F },
+      { t: '(() => {\n    ', c: D }, { t: 'ref', c: P },
+      { t: '.current = ', c: D }, { t: 'value', c: P },
+      { t: '\n  }, [', c: D }, { t: 'value', c: P },
+      { t: '])\n  ', c: D }, { t: 'return', c: K },
+      { t: ' ', c: D }, { t: 'ref', c: P },
+      { t: '.current\n}', c: D },
+    ],
+  },
+]
+
+function CodeTyper() {
+  const [hookIdx, setHookIdx] = useState(0)
+  const [charIdx, setCharIdx] = useState(0)
+  const [phase, setPhase] = useState<'typing' | 'clearing'>('typing')
+  const [cursor, setCursor] = useState(true)
+
+  const chars = useMemo(
+    () => HOOKS[hookIdx].tokens.flatMap(({ t, c }) => [...t].map(ch => ({ ch, c }))),
+    [hookIdx]
+  )
+
+  useEffect(() => {
+    const id = setInterval(() => setCursor(v => !v), 530)
+    return () => clearInterval(id)
+  }, [])
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>
+    if (phase === 'typing') {
+      if (charIdx >= chars.length) {
+        timer = setTimeout(() => setPhase('clearing'), 2800)
+      } else {
+        const ch = chars[charIdx].ch
+        timer = setTimeout(
+          () => setCharIdx(n => n + 1),
+          ch === '\n' ? 18 : 36 + Math.random() * 44
+        )
+      }
+    } else {
+      if (charIdx <= 0) {
+        setHookIdx(i => (i + 1) % HOOKS.length)
+        setPhase('typing')
+        return
+      }
+      timer = setTimeout(() => setCharIdx(n => n - 1), 6)
+    }
+    return () => clearTimeout(timer)
+  }, [phase, charIdx, chars])
+
+  const segments: { text: string; color: string }[] = []
+  for (const { ch, c } of chars.slice(0, charIdx)) {
+    const last = segments[segments.length - 1]
+    if (last && last.color === c) last.text += ch
+    else segments.push({ text: ch, color: c })
+  }
+
+  return (
+    <div>
+      <div className="mb-3" style={{ ...label, color: '#4A4751' }}>
+        {HOOKS[hookIdx].label}
+      </div>
+      <div style={{ backgroundColor: '#2B2730', borderRadius: '4px', padding: '14px 16px', overflow: 'hidden' }}>
+        <pre style={{ ...mono, fontSize: '11px', lineHeight: 1.8, margin: 0, whiteSpace: 'pre', minHeight: '300px' }}>
+          {segments.map((seg, i) => (
+            <span key={i} style={{ color: seg.color }}>{seg.text}</span>
+          ))}
+          {cursor && <span style={{ color: '#C9A9C7' }}>▌</span>}
+        </pre>
+      </div>
+    </div>
+  )
+}
 
 const NOTES = [
   {
@@ -41,24 +224,7 @@ const NOTES = [
   },
   {
     id: 'code-snippet',
-    content: (
-      <div>
-        <div className="mb-3" style={{ ...label, color: '#4A4751' }}>Hook I reach for constantly</div>
-        <pre style={{ ...mono, fontSize: '11.5px', lineHeight: 1.8, color: '#1B1A1F', overflow: 'auto', whiteSpace: 'pre' }}>{`function useDebounce<T>(
-  value: T,
-  delay = 300
-): T {
-  const [v, setV] = useState(value)
-  useEffect(() => {
-    const t = setTimeout(
-      () => setV(value), delay
-    )
-    return () => clearTimeout(t)
-  }, [value, delay])
-  return v
-}`}</pre>
-      </div>
-    ),
+    content: <CodeTyper />,
     bg: '#E8DFD0',
     border: 'none',
     span: 'col-span-1',

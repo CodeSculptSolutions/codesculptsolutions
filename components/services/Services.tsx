@@ -141,9 +141,8 @@ const SERVICE_ILLUSTRATIONS = {
 const SERVICES = [
   {
     name: 'Web Development' as const,
-    // D-shape: near-vertical left edge, organic right bulge — clearly not circular
-    blob: `M12,18 L12,242 C12,242 72,262 155,248 C228,235 288,185 298,122 C308,62 268,8 198,2 C135,-4 12,18 12,18 Z`,
-    viewBox: '-20 -25 350 310',
+    blob: `M10,15 C2,5 -8,50 4,118 C14,180 -5,222 8,255 C25,278 95,268 168,254 C238,240 296,192 308,128 C320,65 278,10 208,4 C145,-4 18,24 10,15 Z`,
+    viewBox: '-15 -12 338 296',
     color: '#C9A9C7',
     ink: '#2B2730',
     description: 'Production-ready web apps built in Next.js, React, and TypeScript. Fast, accessible, and shaped around how your users actually move through them — not just how they look in a browser window.',
@@ -252,15 +251,18 @@ function ServiceEntry({ service, index, isInView }: ServiceEntryProps) {
         >
           {service.description}
         </p>
-        <div className="flex flex-wrap gap-x-4 gap-y-2">
+        <div className="flex flex-wrap gap-2">
           {service.capabilities.map((cap) => (
             <span
               key={cap}
-              className="text-ink-soft"
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: '12px',
-                letterSpacing: '0.04em',
+                fontSize: '11px',
+                letterSpacing: '0.03em',
+                color: '#4A4751',
+                backgroundColor: 'rgba(27,26,31,0.06)',
+                padding: '4px 9px',
+                borderRadius: '3px',
               }}
             >
               {cap}
