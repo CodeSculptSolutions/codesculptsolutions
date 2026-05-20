@@ -144,7 +144,7 @@ const SERVICES = [
     blob: `M10,15 C2,5 -8,50 4,118 C14,180 -5,222 8,255 C25,278 95,268 168,254 C238,240 296,192 308,128 C320,65 278,10 208,4 C145,-4 18,24 10,15 Z`,
     viewBox: '-15 -12 338 296',
     color: '#C9A9C7',
-    ink: '#2B2730',
+    ink: 'var(--color-kiln)',
     description: 'Production-ready web apps built in Next.js, React, and TypeScript. Fast, accessible, and shaped around how your users actually move through them — not just how they look in a browser window.',
     capabilities: ['Next.js · React · TypeScript', 'Performance & SEO', 'CMS integration · WordPress', 'E-commerce · Checkout flows'],
   },
@@ -154,7 +154,7 @@ const SERVICES = [
     blob: `M88,8 C128,-8 182,18 192,68 C202,118 178,160 182,215 C186,264 156,294 116,290 C76,286 46,256 42,212 C36,162 56,122 52,72 C46,24 50,24 88,8 Z`,
     viewBox: '28 -5 180 308',
     color: '#A8BBD6',
-    ink: '#2B2730',
+    ink: 'var(--color-kiln)',
     description: "Cross-platform mobile apps with a single React Native + Expo codebase — iOS and Android, without the duplication. We've shipped to the App Store and Google Play. The unglamorous deployment bits are handled.",
     capabilities: ['React Native · Expo', 'iOS & Android', 'Offline-first · Push notifications', 'App Store & Play Store'],
   },
@@ -164,7 +164,7 @@ const SERVICES = [
     blob: `M30,65 C22,10 92,-5 155,18 C198,34 218,8 265,42 C308,74 315,138 290,188 C265,238 205,260 152,252 C95,244 28,218 12,168 C-2,125 38,115 30,65 Z`,
     viewBox: '-5 -10 330 278',
     color: '#F0B8A8',
-    ink: '#2B2730',
+    ink: 'var(--color-kiln)',
     description: 'Design that starts with your users and ends with a working system. User research, wireframes, high-fidelity prototypes, and design systems built in Figma — then handed over in a state a developer can actually use.',
     capabilities: ['Figma · Design systems', 'User research · Wireframing', 'Interaction design', 'Handoff-ready prototypes'],
   },
@@ -174,7 +174,7 @@ const SERVICES = [
     blob: `M15,55 C12,18 75,5 148,8 C215,10 278,18 305,65 C330,108 322,175 280,212 C238,248 168,252 105,235 C45,218 8,180 5,138 C2,105 18,88 15,55 Z`,
     viewBox: '0 0 338 262',
     color: '#E8DFD0',
-    ink: '#1B1A1F',
+    ink: 'var(--color-ink)',
     description: 'Internal tools, admin dashboards, data management systems, and government-grade web platforms. The kind of software that nobody sees but everyone depends on. Built to last, not to demo.',
     capabilities: ['Admin tools · Dashboards', 'Data management systems', 'Government · NGO platforms', 'Python · Flask · PyQT · SQL'],
   },
@@ -229,7 +229,7 @@ function ServiceEntry({ service, index, isInView }: ServiceEntryProps) {
       <div className="flex flex-col justify-center">
         <motion.h3
           className="mb-4"
-          animate={hovered ? { color: service.color === '#E8DFD0' ? '#4A4751' : service.color } : { color: '#1B1A1F' }}
+          animate={hovered ? { color: service.color === '#E8DFD0' ? 'var(--color-ink-soft)' : service.color } : { color: 'var(--color-ink)' }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
           style={{
             fontFamily: "'General Sans', system-ui, sans-serif",
@@ -259,8 +259,8 @@ function ServiceEntry({ service, index, isInView }: ServiceEntryProps) {
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: '11px',
                 letterSpacing: '0.03em',
-                color: '#4A4751',
-                backgroundColor: 'rgba(27,26,31,0.06)',
+                color: 'var(--color-ink-soft)',
+                backgroundColor: 'rgba(var(--ink-rgb), 0.06)',
                 padding: '4px 9px',
                 borderRadius: '3px',
               }}
@@ -295,7 +295,7 @@ export function Services() {
               fontSize: 'clamp(40px, 5vw, 72px)',
               letterSpacing: '-0.03em',
               lineHeight: 1.05,
-              color: '#1B1A1F',
+              color: 'var(--color-ink)',
             }}
           >
             What we{' '}

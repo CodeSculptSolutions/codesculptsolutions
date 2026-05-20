@@ -208,7 +208,7 @@ const serif = { fontFamily: "'Fraunces', Georgia, serif" }
 
 function CurrencyBadge({ current, onChange }: { current: Currency; onChange: (c: Currency) => void }) {
   return (
-    <div className="flex items-center gap-1 p-1 rounded-full" style={{ backgroundColor: 'rgba(27,26,31,0.06)' }}>
+    <div className="flex items-center gap-1 p-1 rounded-full" style={{ backgroundColor: 'rgba(var(--ink-rgb), 0.06)' }}>
       {(Object.keys(CURRENCIES) as Currency[]).map((c) => (
         <button
           key={c}
@@ -216,8 +216,8 @@ function CurrencyBadge({ current, onChange }: { current: Currency; onChange: (c:
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-200 focus-visible:outline-none text-sm font-medium"
           style={{
             ...gs,
-            backgroundColor: current === c ? '#1B1A1F' : 'transparent',
-            color: current === c ? '#F4EFE6' : '#4A4751',
+            backgroundColor: current === c ? 'var(--color-ink)' : 'transparent',
+            color: current === c ? 'var(--color-canvas)' : 'var(--color-ink-soft)',
             fontSize: '12px',
             letterSpacing: '0.02em',
           }}
@@ -235,8 +235,8 @@ function TierCard({ tier, currency, accent }: { tier: typeof SERVICES[0]['tiers'
     <div
       className="relative flex flex-col p-4 md:p-6 rounded-sm"
       style={{
-        backgroundColor: tier.featured ? '#1B1A1F' : '#F4EFE6',
-        border: tier.featured ? 'none' : '1px solid rgba(27,26,31,0.1)',
+        backgroundColor: tier.featured ? 'var(--color-ink)' : 'var(--color-canvas)',
+        border: tier.featured ? 'none' : '1px solid rgba(var(--ink-rgb), 0.1)',
         flex: 1,
       }}
     >
@@ -249,10 +249,10 @@ function TierCard({ tier, currency, accent }: { tier: typeof SERVICES[0]['tiers'
       )}
 
       <div className="mb-4">
-        <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: tier.featured ? 'rgba(244,239,230,0.45)' : '#4A4751', marginBottom: '6px' }}>
+        <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: tier.featured ? 'rgba(var(--canvas-rgb), 0.45)' : 'var(--color-ink-soft)', marginBottom: '6px' }}>
           {tier.duration}
         </div>
-        <div style={{ ...gs, fontWeight: 600, fontSize: '16px', color: tier.featured ? '#F4EFE6' : '#1B1A1F', letterSpacing: '-0.01em' }}>
+        <div style={{ ...gs, fontWeight: 600, fontSize: '16px', color: tier.featured ? 'var(--color-canvas)' : 'var(--color-ink)', letterSpacing: '-0.01em' }}>
           {tier.name}
         </div>
       </div>
@@ -266,13 +266,13 @@ function TierCard({ tier, currency, accent }: { tier: typeof SERVICES[0]['tiers'
           transition={{ duration: 0.2, ease: 'easeOut' }}
           className="mb-4"
         >
-          <div style={{ ...gs, fontWeight: 700, fontSize: 'clamp(20px, 2.5vw, 26px)', letterSpacing: '-0.02em', color: tier.featured ? accent : '#1B1A1F', lineHeight: 1.1 }}>
+          <div style={{ ...gs, fontWeight: 700, fontSize: 'clamp(20px, 2.5vw, 26px)', letterSpacing: '-0.02em', color: tier.featured ? accent : 'var(--color-ink)', lineHeight: 1.1 }}>
             {fmtRange(tier.prices[currency], currency)}
           </div>
         </motion.div>
       </AnimatePresence>
 
-      <p style={{ ...mn, fontSize: '13px', lineHeight: 1.65, color: tier.featured ? 'rgba(244,239,230,0.6)' : '#4A4751', marginBottom: '20px' }}>
+      <p style={{ ...mn, fontSize: '13px', lineHeight: 1.65, color: tier.featured ? 'rgba(var(--canvas-rgb), 0.6)' : 'var(--color-ink-soft)', marginBottom: '20px' }}>
         {tier.desc}
       </p>
 
@@ -280,7 +280,7 @@ function TierCard({ tier, currency, accent }: { tier: typeof SERVICES[0]['tiers'
         {tier.includes.map((item) => (
           <li key={item} className="flex items-start gap-2">
             <span style={{ color: accent, fontSize: '12px', lineHeight: 1.8, flexShrink: 0 }}>✦</span>
-            <span style={{ ...mono, fontSize: '11px', color: tier.featured ? 'rgba(244,239,230,0.7)' : '#4A4751', lineHeight: 1.7 }}>{item}</span>
+            <span style={{ ...mono, fontSize: '11px', color: tier.featured ? 'rgba(var(--canvas-rgb), 0.7)' : 'var(--color-ink-soft)', lineHeight: 1.7 }}>{item}</span>
           </li>
         ))}
       </ul>
@@ -295,11 +295,11 @@ function ServiceSection({ service, currency }: { service: typeof SERVICES[0]; cu
       <div className="flex items-baseline justify-between mb-8 flex-wrap gap-3">
         <div className="flex items-center gap-3">
           <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: service.color, display: 'inline-block', flexShrink: 0 }} />
-          <h2 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(22px, 3vw, 32px)', letterSpacing: '-0.02em', color: '#1B1A1F' }}>
+          <h2 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(22px, 3vw, 32px)', letterSpacing: '-0.02em', color: 'var(--color-ink)' }}>
             {service.name}
           </h2>
         </div>
-        <div style={{ ...mono, fontSize: '11px', color: '#4A4751', letterSpacing: '0.04em' }}>
+        <div style={{ ...mono, fontSize: '11px', color: 'var(--color-ink-soft)', letterSpacing: '0.04em' }}>
           Hourly:{' '}
           <AnimatePresence mode="wait">
             <motion.span
@@ -343,18 +343,18 @@ export function PricingPage() {
   }, [])
 
   return (
-    <div style={{ backgroundColor: '#F4EFE6', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: 'var(--color-canvas)', minHeight: '100vh' }}>
 
       {/* ── Nav ── */}
-      <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: 'rgba(244,239,230,0.92)', backdropFilter: 'blur(8px)', borderColor: 'rgba(27,26,31,0.08)' }}>
+      <header className="sticky top-0 z-50 border-b" style={{ backgroundColor: 'rgba(var(--canvas-rgb), 0.92)', backdropFilter: 'blur(8px)', borderColor: 'rgba(var(--ink-rgb), 0.08)' }}>
         <div className="max-w-[1440px] mx-auto px-8 md:px-16 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5 focus-visible:outline-none group">
             <div className="flex items-center" style={{ gap: '2px' }}>
-              <span style={{ ...mono, color: '#4A4751', fontSize: '14px', lineHeight: 1, userSelect: 'none' }}>{'<'}</span>
+              <span style={{ ...mono, color: 'var(--color-ink-soft)', fontSize: '14px', lineHeight: 1, userSelect: 'none' }}>{'<'}</span>
               <LogoMark size={18} animated={false} variant="compact" />
-              <span style={{ ...mono, color: '#4A4751', fontSize: '14px', lineHeight: 1, userSelect: 'none' }}>{'>'}</span>
+              <span style={{ ...mono, color: 'var(--color-ink-soft)', fontSize: '14px', lineHeight: 1, userSelect: 'none' }}>{'>'}</span>
             </div>
-            <span style={{ ...gs, fontWeight: 600, fontSize: '14px', letterSpacing: '-0.02em', color: '#1B1A1F' }}>
+            <span style={{ ...gs, fontWeight: 600, fontSize: '14px', letterSpacing: '-0.02em', color: 'var(--color-ink)' }}>
               CodeSculptSolutions
             </span>
           </Link>
@@ -363,7 +363,7 @@ export function PricingPage() {
             <Link
               href="/#contact"
               className="text-[13px] font-medium transition-colors duration-200"
-              style={{ ...gs, color: '#4A4751', letterSpacing: '0.01em' }}
+              style={{ ...gs, color: 'var(--color-ink-soft)', letterSpacing: '0.01em' }}
             >
               Let&apos;s talk →
             </Link>
@@ -374,20 +374,20 @@ export function PricingPage() {
       <main className="max-w-[1440px] mx-auto px-8 md:px-16">
 
         {/* ── Hero ── */}
-        <div className="pt-12 pb-10 md:pt-20 md:pb-16 border-b" style={{ borderColor: 'rgba(27,26,31,0.1)' }}>
+        <div className="pt-12 pb-10 md:pt-20 md:pb-16 border-b" style={{ borderColor: 'rgba(var(--ink-rgb), 0.1)' }}>
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE_OUT_EXPO }}
           >
-            <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#4A4751', marginBottom: '16px' }}>
+            <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--color-ink-soft)', marginBottom: '16px' }}>
               Transparent Pricing
             </div>
-            <h1 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(48px, 7vw, 96px)', letterSpacing: '-0.03em', lineHeight: 1.02, color: '#1B1A1F', marginBottom: '16px' }}>
+            <h1 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(48px, 7vw, 96px)', letterSpacing: '-0.03em', lineHeight: 1.02, color: 'var(--color-ink)', marginBottom: '16px' }}>
               What it{' '}
               <em style={{ ...serif, fontStyle: 'italic', color: '#C9A9C7' }}>costs.</em>
             </h1>
-            <p style={{ ...mn, fontSize: '17px', lineHeight: 1.75, color: '#4A4751', maxWidth: '560px', marginBottom: '32px' }}>
+            <p style={{ ...mn, fontSize: '17px', lineHeight: 1.75, color: 'var(--color-ink-soft)', maxWidth: '560px', marginBottom: '32px' }}>
               Project-based pricing with no hidden fees. Every engagement starts with a discovery call — scope is defined in writing before a single line of code is written.
             </p>
 
@@ -421,17 +421,17 @@ export function PricingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: EASE_OUT_EXPO, delay: 0.2 }}
           className="pb-20 border-t pt-16"
-          style={{ borderColor: 'rgba(27,26,31,0.1)' }}
+          style={{ borderColor: 'rgba(var(--ink-rgb), 0.1)' }}
         >
           <div className="mb-10">
-            <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4A4751', marginBottom: '8px' }}>
+            <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-ink-soft)', marginBottom: '8px' }}>
               Ongoing work
             </div>
-            <h2 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(28px, 4vw, 48px)', letterSpacing: '-0.025em', color: '#1B1A1F' }}>
+            <h2 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(28px, 4vw, 48px)', letterSpacing: '-0.025em', color: 'var(--color-ink)' }}>
               Monthly{' '}
               <em style={{ ...serif, fontStyle: 'italic', color: '#C9A9C7' }}>retainers</em>
             </h2>
-            <p style={{ ...mn, fontSize: '15px', lineHeight: 1.7, color: '#4A4751', maxWidth: '520px', marginTop: '10px' }}>
+            <p style={{ ...mn, fontSize: '15px', lineHeight: 1.7, color: 'var(--color-ink-soft)', maxWidth: '520px', marginTop: '10px' }}>
               For teams that need consistent bandwidth. No scope, no surprises — just dedicated time, billed monthly.
             </p>
           </div>
@@ -442,14 +442,14 @@ export function PricingPage() {
                 key={r.name}
                 className="p-8 rounded-sm"
                 style={{
-                  backgroundColor: r.featured ? '#2B2730' : 'rgba(27,26,31,0.04)',
-                  border: r.featured ? 'none' : '1px solid rgba(27,26,31,0.08)',
+                  backgroundColor: r.featured ? 'var(--color-kiln)' : 'rgba(var(--ink-rgb), 0.04)',
+                  border: r.featured ? 'none' : '1px solid rgba(var(--ink-rgb), 0.08)',
                 }}
               >
-                <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: r.featured ? '#C9A9C7' : '#4A4751', marginBottom: '6px' }}>
+                <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: r.featured ? '#C9A9C7' : 'var(--color-ink-soft)', marginBottom: '6px' }}>
                   {r.hours}
                 </div>
-                <div style={{ ...gs, fontWeight: 700, fontSize: '20px', letterSpacing: '-0.02em', color: r.featured ? '#F4EFE6' : '#1B1A1F', marginBottom: '4px' }}>
+                <div style={{ ...gs, fontWeight: 700, fontSize: '20px', letterSpacing: '-0.02em', color: r.featured ? 'var(--color-canvas)' : 'var(--color-ink)', marginBottom: '4px' }}>
                   {r.name}
                 </div>
 
@@ -460,21 +460,21 @@ export function PricingPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -4 }}
                     transition={{ duration: 0.2 }}
-                    style={{ ...gs, fontWeight: 700, fontSize: 'clamp(28px, 3.5vw, 40px)', letterSpacing: '-0.03em', color: r.featured ? '#C9A9C7' : '#1B1A1F', lineHeight: 1.05, margin: '12px 0' }}
+                    style={{ ...gs, fontWeight: 700, fontSize: 'clamp(28px, 3.5vw, 40px)', letterSpacing: '-0.03em', color: r.featured ? '#C9A9C7' : 'var(--color-ink)', lineHeight: 1.05, margin: '12px 0' }}
                   >
                     {fmt(r.prices[currency], currency)}
-                    <span style={{ ...mn, fontSize: '14px', fontWeight: 400, color: r.featured ? 'rgba(244,239,230,0.4)' : 'rgba(74,71,81,0.5)', marginLeft: '6px' }}>/mo</span>
+                    <span style={{ ...mn, fontSize: '14px', fontWeight: 400, color: r.featured ? 'rgba(var(--canvas-rgb), 0.4)' : 'rgba(74,71,81,0.5)', marginLeft: '6px' }}>/mo</span>
                   </motion.div>
                 </AnimatePresence>
 
-                <p style={{ ...mn, fontSize: '13px', lineHeight: 1.65, color: r.featured ? 'rgba(244,239,230,0.55)' : '#4A4751', marginBottom: '20px' }}>
+                <p style={{ ...mn, fontSize: '13px', lineHeight: 1.65, color: r.featured ? 'rgba(var(--canvas-rgb), 0.55)' : 'var(--color-ink-soft)', marginBottom: '20px' }}>
                   {r.desc}
                 </p>
                 <ul className="space-y-2">
                   {r.includes.map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <span style={{ color: '#C9A9C7', fontSize: '12px', lineHeight: 1.8, flexShrink: 0 }}>✦</span>
-                      <span style={{ ...mono, fontSize: '11px', color: r.featured ? 'rgba(244,239,230,0.65)' : '#4A4751', lineHeight: 1.7 }}>{item}</span>
+                      <span style={{ ...mono, fontSize: '11px', color: r.featured ? 'rgba(var(--canvas-rgb), 0.65)' : 'var(--color-ink-soft)', lineHeight: 1.7 }}>{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -484,11 +484,11 @@ export function PricingPage() {
         </motion.div>
 
         {/* ── What's always included ── */}
-        <div className="py-16 border-t" style={{ borderColor: 'rgba(27,26,31,0.1)' }}>
-          <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4A4751', marginBottom: '8px' }}>
+        <div className="py-16 border-t" style={{ borderColor: 'rgba(var(--ink-rgb), 0.1)' }}>
+          <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-ink-soft)', marginBottom: '8px' }}>
             Every project
           </div>
-          <h2 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(24px, 3vw, 38px)', letterSpacing: '-0.025em', color: '#1B1A1F', marginBottom: '32px' }}>
+          <h2 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(24px, 3vw, 38px)', letterSpacing: '-0.025em', color: 'var(--color-ink)', marginBottom: '32px' }}>
             What&apos;s always included
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -500,11 +500,11 @@ export function PricingPage() {
               { label: '30-day support', desc: 'Bug fixes at no additional cost for 30 days after delivery. Not feature requests — bugs.' },
               { label: 'Knowledge transfer', desc: 'A walkthrough session on delivery so your team knows how to work with what we built.' },
             ].map((item) => (
-              <div key={item.label} className="p-6 rounded-sm" style={{ backgroundColor: 'rgba(27,26,31,0.03)', border: '1px solid rgba(27,26,31,0.07)' }}>
-                <div style={{ ...gs, fontWeight: 600, fontSize: '14px', color: '#1B1A1F', marginBottom: '8px', letterSpacing: '-0.01em' }}>
+              <div key={item.label} className="p-6 rounded-sm" style={{ backgroundColor: 'rgba(var(--ink-rgb), 0.03)', border: '1px solid rgba(var(--ink-rgb), 0.07)' }}>
+                <div style={{ ...gs, fontWeight: 600, fontSize: '14px', color: 'var(--color-ink)', marginBottom: '8px', letterSpacing: '-0.01em' }}>
                   {item.label}
                 </div>
-                <p style={{ ...mn, fontSize: '13px', lineHeight: 1.65, color: '#4A4751' }}>
+                <p style={{ ...mn, fontSize: '13px', lineHeight: 1.65, color: 'var(--color-ink-soft)' }}>
                   {item.desc}
                 </p>
               </div>
@@ -513,21 +513,21 @@ export function PricingPage() {
         </div>
 
         {/* ── FAQ ── */}
-        <div className="py-16 border-t" style={{ borderColor: 'rgba(27,26,31,0.1)' }}>
-          <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4A4751', marginBottom: '8px' }}>
+        <div className="py-16 border-t" style={{ borderColor: 'rgba(var(--ink-rgb), 0.1)' }}>
+          <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-ink-soft)', marginBottom: '8px' }}>
             Common questions
           </div>
-          <h2 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(24px, 3vw, 38px)', letterSpacing: '-0.025em', color: '#1B1A1F', marginBottom: '32px' }}>
+          <h2 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(24px, 3vw, 38px)', letterSpacing: '-0.025em', color: 'var(--color-ink)', marginBottom: '32px' }}>
             FAQ
           </h2>
-          <div className="max-w-[720px] divide-y" style={{ borderColor: 'rgba(27,26,31,0.1)' }}>
+          <div className="max-w-[720px] divide-y" style={{ borderColor: 'rgba(var(--ink-rgb), 0.1)' }}>
             {FAQS.map((faq, i) => (
-              <div key={i} style={{ borderTop: i === 0 ? '1px solid rgba(27,26,31,0.1)' : 'none', borderBottom: '1px solid rgba(27,26,31,0.1)' }}>
+              <div key={i} style={{ borderTop: i === 0 ? '1px solid rgba(var(--ink-rgb), 0.1)' : 'none', borderBottom: '1px solid rgba(var(--ink-rgb), 0.1)' }}>
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between py-5 text-left focus-visible:outline-none"
                 >
-                  <span style={{ ...gs, fontWeight: 600, fontSize: '15px', color: '#1B1A1F', letterSpacing: '-0.01em', paddingRight: '24px' }}>
+                  <span style={{ ...gs, fontWeight: 600, fontSize: '15px', color: 'var(--color-ink)', letterSpacing: '-0.01em', paddingRight: '24px' }}>
                     {faq.q}
                   </span>
                   <motion.span
@@ -547,7 +547,7 @@ export function PricingPage() {
                       transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                       style={{ overflow: 'hidden' }}
                     >
-                      <p style={{ ...mn, fontSize: '14px', lineHeight: 1.75, color: '#4A4751', paddingBottom: '20px' }}>
+                      <p style={{ ...mn, fontSize: '14px', lineHeight: 1.75, color: 'var(--color-ink-soft)', paddingBottom: '20px' }}>
                         {faq.a}
                       </p>
                     </motion.div>
@@ -559,30 +559,30 @@ export function PricingPage() {
         </div>
 
         {/* ── CTA ── */}
-        <div className="py-20 border-t" style={{ borderColor: 'rgba(27,26,31,0.1)' }}>
+        <div className="py-20 border-t" style={{ borderColor: 'rgba(var(--ink-rgb), 0.1)' }}>
           <div className="max-w-[640px]">
-            <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4A4751', marginBottom: '16px' }}>
+            <div style={{ ...mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--color-ink-soft)', marginBottom: '16px' }}>
               Ready to start?
             </div>
-            <h2 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(32px, 5vw, 64px)', letterSpacing: '-0.03em', lineHeight: 1.05, color: '#1B1A1F', marginBottom: '16px' }}>
+            <h2 style={{ ...gs, fontWeight: 700, fontSize: 'clamp(32px, 5vw, 64px)', letterSpacing: '-0.03em', lineHeight: 1.05, color: 'var(--color-ink)', marginBottom: '16px' }}>
               Every project starts with a{' '}
               <em style={{ ...serif, fontStyle: 'italic', color: '#C9A9C7' }}>conversation.</em>
             </h2>
-            <p style={{ ...mn, fontSize: '16px', lineHeight: 1.75, color: '#4A4751', marginBottom: '32px' }}>
+            <p style={{ ...mn, fontSize: '16px', lineHeight: 1.75, color: 'var(--color-ink-soft)', marginBottom: '32px' }}>
               Book a free 30-minute discovery call. No commitment, no pitch — just a conversation about your project and whether we&apos;re a good fit.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/#contact"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-sm transition-colors duration-200"
-                style={{ ...gs, fontWeight: 600, fontSize: '14px', backgroundColor: '#1B1A1F', color: '#F4EFE6', letterSpacing: '-0.01em' }}
+                style={{ ...gs, fontWeight: 600, fontSize: '14px', backgroundColor: 'var(--color-ink)', color: 'var(--color-canvas)', letterSpacing: '-0.01em' }}
               >
                 Start a project →
               </Link>
               <Link
                 href="/"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-sm transition-colors duration-200"
-                style={{ ...gs, fontWeight: 500, fontSize: '14px', backgroundColor: 'rgba(27,26,31,0.06)', color: '#1B1A1F', letterSpacing: '-0.01em' }}
+                style={{ ...gs, fontWeight: 500, fontSize: '14px', backgroundColor: 'rgba(var(--ink-rgb), 0.06)', color: 'var(--color-ink)', letterSpacing: '-0.01em' }}
               >
                 ← Back to studio
               </Link>
@@ -593,13 +593,13 @@ export function PricingPage() {
       </main>
 
       {/* ── Footer ── */}
-      <footer className="border-t py-10" style={{ borderColor: 'rgba(27,26,31,0.1)', backgroundColor: '#F4EFE6' }}>
+      <footer className="border-t py-10" style={{ borderColor: 'rgba(var(--ink-rgb), 0.1)', backgroundColor: 'var(--color-canvas)' }}>
         <div className="max-w-[1440px] mx-auto px-8 md:px-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
-            <div style={{ ...gs, fontWeight: 600, fontSize: '13px', color: '#1B1A1F', letterSpacing: '-0.01em' }}>
+            <div style={{ ...gs, fontWeight: 600, fontSize: '13px', color: 'var(--color-ink)', letterSpacing: '-0.01em' }}>
               CodeSculptSolutions
             </div>
-            <em style={{ ...serif, fontStyle: 'italic', fontSize: '13px', color: '#4A4751' }}>
+            <em style={{ ...serif, fontStyle: 'italic', fontSize: '13px', color: 'var(--color-ink-soft)' }}>
               Built with Code. Crafted with Purpose.
             </em>
           </div>

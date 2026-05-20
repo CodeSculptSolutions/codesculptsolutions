@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Manrope, Fraunces, JetBrains_Mono, Caveat } from 'next/font/google'
 import './globals.css'
 import { SmoothScroll } from '@/components/ui/SmoothScroll'
+import { ThemeProvider } from '@/components/ui/ThemeProvider'
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -88,7 +89,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="grain">
-        <SmoothScroll>{children}</SmoothScroll>
+        <ThemeProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -40,10 +40,10 @@ export function Contact() {
     fontSize: '15px',
     backgroundColor: 'transparent',
     border: 'none',
-    borderBottom: '1px solid rgba(27,26,31,0.15)',
+    borderBottom: '1px solid rgba(var(--ink-rgb), 0.15)',
     borderRadius: 0,
     padding: '12px 0',
-    color: '#1B1A1F',
+    color: 'var(--color-ink)',
     outline: 'none',
     width: '100%',
     transition: 'border-color 0.25s ease',
@@ -54,7 +54,7 @@ export function Contact() {
     fontSize: '10px',
     letterSpacing: '0.1em',
     textTransform: 'uppercase',
-    color: '#4A4751',
+    color: 'var(--color-ink-soft)',
     display: 'block',
     marginBottom: '6px',
   }
@@ -79,7 +79,7 @@ export function Contact() {
                 fontSize: 'clamp(40px, 5.5vw, 80px)',
                 letterSpacing: '-0.03em',
                 lineHeight: 1.05,
-                color: '#1B1A1F',
+                color: 'var(--color-ink)',
               }}
             >
               Have something you want to{' '}
@@ -99,7 +99,7 @@ export function Contact() {
             </p>
 
             <div className="space-y-3">
-              <div style={{ fontFamily: "'Manrope', system-ui, sans-serif", fontSize: '15px', color: '#4A4751' }}>
+              <div style={{ fontFamily: "'Manrope', system-ui, sans-serif", fontSize: '15px', color: 'var(--color-ink-soft)' }}>
                 Email{' '}
                 <a
                   href="mailto:hello@codesculptsolutions.com"
@@ -108,7 +108,7 @@ export function Contact() {
                   hello@codesculptsolutions.com
                 </a>
               </div>
-              <div style={{ fontFamily: "'Manrope', system-ui, sans-serif", fontSize: '15px', color: '#4A4751' }}>
+              <div style={{ fontFamily: "'Manrope', system-ui, sans-serif", fontSize: '15px', color: 'var(--color-ink-soft)' }}>
                 Phone{' '}
                 <a href="tel:+639457542691" className="squiggle-link text-ink font-medium">
                   +63 945 754 2691
@@ -154,10 +154,10 @@ export function Contact() {
                     />
                     <circle cx="24" cy="24" r="22" stroke="rgba(201,169,199,0.25)" strokeWidth="1" fill="none" />
                   </svg>
-                  <p style={{ fontFamily: "'General Sans', system-ui, sans-serif", fontWeight: 600, fontSize: '26px', letterSpacing: '-0.02em', color: '#1B1A1F', lineHeight: 1.1 }}>
+                  <p style={{ fontFamily: "'General Sans', system-ui, sans-serif", fontWeight: 600, fontSize: '26px', letterSpacing: '-0.02em', color: 'var(--color-ink)', lineHeight: 1.1 }}>
                     Got it.<br />Talk soon.
                   </p>
-                  <p style={{ fontFamily: "'Manrope', system-ui, sans-serif", fontSize: '15px', color: '#4A4751', lineHeight: 1.7 }}>
+                  <p style={{ fontFamily: "'Manrope', system-ui, sans-serif", fontSize: '15px', color: 'var(--color-ink-soft)', lineHeight: 1.7 }}>
                     We&apos;ll be in touch within a couple of days.<br />
                     Check your inbox — you should have a reply from the studio.
                   </p>
@@ -184,7 +184,7 @@ export function Contact() {
                         placeholder="Your name"
                         style={fieldBase}
                         onFocus={(e) => { e.currentTarget.style.borderBottomColor = '#C9A9C7' }}
-                        onBlur={(e) => { e.currentTarget.style.borderBottomColor = 'rgba(27,26,31,0.15)' }}
+                        onBlur={(e) => { e.currentTarget.style.borderBottomColor = 'rgba(var(--ink-rgb), 0.15)' }}
                       />
                     </div>
                     <div>
@@ -199,7 +199,7 @@ export function Contact() {
                         placeholder="you@example.com"
                         style={fieldBase}
                         onFocus={(e) => { e.currentTarget.style.borderBottomColor = '#C9A9C7' }}
-                        onBlur={(e) => { e.currentTarget.style.borderBottomColor = 'rgba(27,26,31,0.15)' }}
+                        onBlur={(e) => { e.currentTarget.style.borderBottomColor = 'rgba(var(--ink-rgb), 0.15)' }}
                       />
                     </div>
                   </div>
@@ -224,7 +224,7 @@ export function Contact() {
                         lineHeight: '1.7',
                       }}
                       onFocus={(e) => { e.currentTarget.style.borderBottomColor = '#C9A9C7' }}
-                      onBlur={(e) => { e.currentTarget.style.borderBottomColor = 'rgba(27,26,31,0.15)' }}
+                      onBlur={(e) => { e.currentTarget.style.borderBottomColor = 'rgba(var(--ink-rgb), 0.15)' }}
                     />
                   </div>
 
@@ -239,8 +239,8 @@ export function Contact() {
                         fontWeight: 600,
                         fontSize: '15px',
                         letterSpacing: '-0.01em',
-                        backgroundColor: '#1B1A1F',
-                        color: '#F4EFE6',
+                        backgroundColor: 'var(--color-ink)',
+                        color: 'var(--color-canvas)',
                         border: 'none',
                         borderRadius: '3px',
                         padding: '14px 28px',
@@ -267,7 +267,7 @@ export function Contact() {
                         Something went wrong — try hello@codesculptsolutions.com
                       </span>
                     ) : (
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#4A4751', letterSpacing: '0.04em' }}>
+                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: 'var(--color-ink-soft)', letterSpacing: '0.04em' }}>
                         Usually reply within 2 days
                       </span>
                     )}

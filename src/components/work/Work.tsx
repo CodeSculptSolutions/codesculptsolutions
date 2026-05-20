@@ -218,14 +218,14 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
     <motion.article
       className="flex flex-col group"
       style={{
-        border: '1px solid rgba(27,26,31,0.08)',
+        border: '1px solid rgba(var(--ink-rgb), 0.08)',
         borderRadius: '4px',
         overflow: 'hidden',
-        backgroundColor: '#F4EFE6',
+        backgroundColor: 'var(--color-canvas)',
       }}
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      whileHover={{ y: -5, boxShadow: '0 12px 32px rgba(27,26,31,0.08)' }}
+      whileHover={{ y: -5, boxShadow: '0 12px 32px rgba(var(--ink-rgb), 0.08)' }}
       transition={{ duration: 0.6, ease: EASE_OUT_EXPO, delay: index * 0.07 }}
       onMouseEnter={() => { setHovered(true); project.confidential && setShowTooltip(true) }}
       onMouseLeave={() => { setHovered(false); setShowTooltip(false) }}
@@ -237,7 +237,7 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
           height: '200px',
           padding: '24px 32px',
           backgroundColor: hovered ? `${project.accent}28` : 'transparent',
-          borderBottom: `1px solid ${hovered ? `${project.accent}40` : 'rgba(27,26,31,0.06)'}`,
+          borderBottom: `1px solid ${hovered ? `${project.accent}40` : 'rgba(var(--ink-rgb), 0.06)'}`,
           transition: 'background-color 0.35s ease, border-color 0.35s ease',
         }}
       >
@@ -262,8 +262,8 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
                 fontFamily: "'JetBrains Mono', monospace",
                 fontSize: '10px',
                 letterSpacing: '0.04em',
-                color: '#F4EFE6',
-                backgroundColor: '#2B2730',
+                color: 'var(--color-canvas)',
+                backgroundColor: 'var(--color-kiln)',
                 padding: '4px 10px',
                 borderRadius: '2px',
                 display: 'block',
@@ -283,7 +283,7 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
           fontSize: '10px',
           letterSpacing: '0.1em',
           textTransform: 'uppercase',
-          color: '#4A4751',
+          color: 'var(--color-ink-soft)',
         }}>
           {project.subtitle}
         </div>
@@ -296,7 +296,7 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
               fontSize: '20px',
               letterSpacing: '-0.02em',
               lineHeight: 1.15,
-              color: hovered ? project.accent : '#1B1A1F',
+              color: hovered ? project.accent : 'var(--color-ink)',
               transition: 'color 0.3s ease',
             }}
           >
@@ -308,7 +308,7 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
               style={{
                 fontFamily: "'Caveat', cursive",
                 fontSize: '13px',
-                color: '#4A4751',
+                color: 'var(--color-ink-soft)',
                 opacity: 0.7,
                 whiteSpace: 'nowrap',
               }}
@@ -322,7 +322,7 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
           fontFamily: "'Manrope', system-ui, sans-serif",
           fontSize: '13px',
           lineHeight: 1.7,
-          color: '#4A4751',
+          color: 'var(--color-ink-soft)',
           flex: 1,
         }}>
           {project.description}
@@ -334,8 +334,8 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: '10px',
               letterSpacing: '0.04em',
-              color: '#4A4751',
-              backgroundColor: 'rgba(27,26,31,0.06)',
+              color: 'var(--color-ink-soft)',
+              backgroundColor: 'rgba(var(--ink-rgb), 0.06)',
               padding: '2px 6px',
               borderRadius: '2px',
             }}>
@@ -346,7 +346,7 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
 
         <div className="flex flex-wrap gap-x-1.5 gap-y-1 pt-1">
           {project.tags.map((tag, i) => (
-            <span key={tag} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#4A4751', letterSpacing: '0.02em' }}>
+            <span key={tag} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: 'var(--color-ink-soft)', letterSpacing: '0.02em' }}>
               {i > 0 && <span className="opacity-25 mr-1.5">·</span>}{tag}
             </span>
           ))}
@@ -358,7 +358,7 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
               fontFamily: "'General Sans', system-ui, sans-serif",
               fontWeight: 500,
               fontSize: '13px',
-              color: '#1B1A1F',
+              color: 'var(--color-ink)',
             }}>
               View project →
             </span>
@@ -404,7 +404,7 @@ export function Work() {
               fontSize: 'clamp(40px, 5vw, 72px)',
               letterSpacing: '-0.03em',
               lineHeight: 1.05,
-              color: '#1B1A1F',
+              color: 'var(--color-ink)',
             }}
           >
             Selected{' '}

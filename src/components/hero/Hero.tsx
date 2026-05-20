@@ -342,7 +342,7 @@ export function Hero() {
           >
             <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#C9A9C7', letterSpacing: '0.04em' }}>~/studio</span>
             <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: 'rgba(74,71,81,0.4)', letterSpacing: '0.04em' }}>·</span>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: '#4A4751', letterSpacing: '0.04em' }}>available for new projects</span>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: 'var(--color-ink-soft)', letterSpacing: '0.04em' }}>available for new projects</span>
           </motion.div>
           <motion.h1
             className="mb-8"
@@ -352,7 +352,7 @@ export function Hero() {
               fontSize: 'clamp(52px, 6.5vw, 96px)',
               lineHeight: 1.02,
               letterSpacing: '-0.03em',
-              color: '#1B1A1F',
+              color: 'var(--color-ink)',
             }}
             initial="hidden"
             animate="visible"
@@ -442,7 +442,7 @@ export function Hero() {
       {/* Subtle bottom fade */}
       <div
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, #F4EFE6)' }}
+        style={{ background: 'linear-gradient(to bottom, transparent, var(--color-canvas))' }}
         aria-hidden="true"
       />
     </section>

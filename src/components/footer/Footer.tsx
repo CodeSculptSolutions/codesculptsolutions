@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <footer
       className="border-t border-ink/10 py-12 md:py-16"
-      style={{ backgroundColor: '#F4EFE6' }}
+      style={{ backgroundColor: 'var(--color-canvas)' }}
     >
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
@@ -30,7 +30,7 @@ export function Footer() {
                 fontFamily: "'Fraunces', Georgia, serif",
                 fontStyle: 'italic',
                 fontSize: '14px',
-                color: '#4A4751',
+                color: 'var(--color-ink-soft)',
               }}
             >
               Built with Code. Crafted with Purpose.
