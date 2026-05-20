@@ -153,9 +153,9 @@ export function About() {
                   color: '#4A4751',
                 }}
               >
-                I started CodeSculptSolutions because I kept noticing the same gap. Most studios
+                We started CodeSculptSolutions because we kept noticing the same gap. Most studios
                 either build well or design well — rarely both, and almost never with a sense of
-                craft. I wanted somewhere I could take an idea from a Figma file to a production
+                craft. We wanted somewhere we could take an idea from a Figma file to a production
                 deploy without it losing its soul along the way.
               </motion.p>
               <motion.p
@@ -167,7 +167,7 @@ export function About() {
                   color: '#4A4751',
                 }}
               >
-                Since 2021 I&apos;ve shipped data systems for a city government, led design on a
+                Since 2021 we&apos;ve shipped data systems for a city government, led design on a
                 fintech product, built mobile apps in React Native, and made production templates
                 for software teams in Australia. Different stacks, different industries — same
                 obsession with making things that feel intentional.

@@ -155,7 +155,7 @@ const SERVICES = [
     viewBox: '28 -5 180 308',
     color: '#A8BBD6',
     ink: '#2B2730',
-    description: "Cross-platform mobile apps with a single React Native + Expo codebase — iOS and Android, without the duplication. I've shipped to the App Store and Google Play. The unglamorous deployment bits are handled.",
+    description: "Cross-platform mobile apps with a single React Native + Expo codebase — iOS and Android, without the duplication. We've shipped to the App Store and Google Play. The unglamorous deployment bits are handled.",
     capabilities: ['React Native · Expo', 'iOS & Android', 'Offline-first · Push notifications', 'App Store & Play Store'],
   },
   {

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://codesculptsolutions.com'),
   title: 'CodeSculptSolutions — Built with Code. Crafted with Purpose.',
   description:
-    'A one-person studio in Cebu making web, mobile, and custom systems for teams who care about how things feel — not just how they work.',
+    'A studio in Cebu making web, mobile, and custom systems for teams who care about how things feel — not just how they work.',
   keywords: ['web development', 'mobile apps', 'UI/UX design', 'React', 'Next.js', 'Cebu', 'Philippines'],
   authors: [{ name: 'Jake Lourence A. Villar' }],
   openGraph: {

@@ -23,7 +23,7 @@ type Tok = { t: string; c: string }
 
 const HOOKS: { label: string; tokens: Tok[] }[] = [
   {
-    label: 'Hook I reach for constantly',
+    label: 'Hook we reach for constantly',
     tokens: [
       { t: 'function ', c: K }, { t: 'useDebounce', c: F },
       { t: '<', c: D }, { t: 'T', c: TY }, { t: '>(\n  ', c: D },
@@ -46,7 +46,7 @@ const HOOKS: { label: string; tokens: Tok[] }[] = [
     ],
   },
   {
-    label: 'Another one I always bring',
+    label: 'Another one we always ship with',
     tokens: [
       { t: 'function ', c: K }, { t: 'useLocalStorage', c: F },
       { t: '<', c: D }, { t: 'T', c: TY }, { t: '>(\n  ', c: D },
@@ -291,7 +291,7 @@ const NOTES = [
           A good variable name is worth more than a comment. If you need a comment to explain what the name means, the name is wrong.
         </p>
         <p className="mt-4" style={{ ...mono, fontSize: '11px', color: '#A8BBD6', letterSpacing: '0.04em' }}>
-          — me, during every code review
+          — us, during every code review
         </p>
       </div>
     ),

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Link from 'next/link'
 import { LogoMark } from '@/components/ui/LogoMark'
 
 const NAV_ITEMS = [
@@ -109,6 +110,15 @@ export function Nav() {
               </li>
             )
           })}
+          <li>
+            <Link
+              href="/pricing"
+              className="text-[13px] font-medium transition-colors duration-200 focus-visible:outline-none text-ink-soft hover:text-ink"
+              style={{ fontFamily: "'General Sans', system-ui, sans-serif", letterSpacing: '0.01em' }}
+            >
+              Pricing
+            </Link>
+          </li>
         </ul>
 
         {/* Mobile menu toggle */}

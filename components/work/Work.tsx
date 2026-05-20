@@ -128,7 +128,7 @@ const PROJECTS = [
     filter: ['Mobile'] as FilterKey[],
     href: 'https://budqo.com/',
     confidential: false,
-    annotation: '← my favorite from this year',
+    annotation: '← our favorite from this year',
     accent: '#C9A9C7',
     Art: () => <PhoneArt />,
   },

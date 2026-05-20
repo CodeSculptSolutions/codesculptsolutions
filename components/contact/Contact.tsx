@@ -92,8 +92,8 @@ export function Contact() {
               className="text-ink-soft mb-8"
               style={{ fontFamily: "'Manrope', system-ui, sans-serif", fontSize: '16px', lineHeight: 1.75, maxWidth: '480px' }}
             >
-              I read every message. If we&apos;re a fit, I&apos;ll reply within a day or two with
-              questions and a rough sense of what&apos;s possible. If we&apos;re not, I&apos;ll
+              We read every message. If we&apos;re a fit, we&apos;ll reply within a day or two with
+              questions and a rough sense of what&apos;s possible. If we&apos;re not, we&apos;ll
               tell you that too — and try to point you somewhere useful.
             </p>
 
@@ -149,7 +149,7 @@ export function Contact() {
                     Got it.<br />Talk soon.
                   </p>
                   <p style={{ fontFamily: "'Manrope', system-ui, sans-serif", fontSize: '15px', color: '#4A4751', lineHeight: 1.7 }}>
-                    I&apos;ll be in touch within a couple of days.<br />
+                    We&apos;ll be in touch within a couple of days.<br />
                     Check your inbox — you should have a reply from the studio.
                   </p>
                 </motion.div>
