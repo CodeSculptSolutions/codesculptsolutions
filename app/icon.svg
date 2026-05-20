@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Organic clay blob background -->
+  <path
+    d="M5,7 C2,1 14,-2 23,3 C31,8 35,18 30,26 C25,34 12,35 5,29 C-2,23 0,11 5,7 Z"
+    fill="#C9A9C7"
+  />
+  <!-- S glyph in canvas white on top -->
+  <path
+    d="M21,12 C21,9.5 19,8 16,8 C13,8 11,9.5 11,12 C11,14.5 13,15.5 16,16 C19,16.5 21,17.5 21,20 C21,22.5 19,24 16,24 C13,24 11,22.5 11,20"
+    stroke="#F4EFE6"
+    stroke-width="2.4"
+    stroke-linecap="round"
+    fill="none"
+  />
+</svg>
