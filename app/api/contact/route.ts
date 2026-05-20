@@ -130,7 +130,7 @@ export async function POST(req: Request) {
 
     // Notification to studio — must succeed
     await resend.emails.send({
-      from: 'CodeSculptSolutions <onboarding@resend.dev>',
+      from: 'CodeSculptSolutions <hello@codesculptsolutions.com>',
       to: ['august.jakelourencevillar@gmail.com'],
       replyTo: email,
       subject: `New message from ${name} via codesculptsolutions.com`,
@@ -140,7 +140,7 @@ export async function POST(req: Request) {
 
     // Auto-reply to sender — best effort, never blocks response
     resend.emails.send({
-      from: 'CodeSculptSolutions <onboarding@resend.dev>',
+      from: 'CodeSculptSolutions <hello@codesculptsolutions.com>',
       to: [email],
       replyTo: 'august.jakelourencevillar@gmail.com',
       subject: `Got your message — CodeSculptSolutions`,
