@@ -516,43 +516,39 @@ export function Work() {
             </em>
           </motion.h2>
 
-          <motion.div
-            className="flex items-center gap-5"
+          <motion.nav
+            aria-label="Work filter"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, ease: EASE_OUT_EXPO, delay: 0.2 }}
           >
-            <nav aria-label="Work filter">
-              <ul className="flex items-center gap-0" role="list">
-                {FILTERS.map((f, i) => (
-                  <li key={f} className="flex items-center flex-shrink-0">
-                    {i > 0 && <span className="mx-2.5 text-ink-soft opacity-30" aria-hidden="true">/</span>}
-                    <button
-                      onClick={() => setActiveFilter(f)}
-                      className={`transition-colors duration-200 focus-visible:outline-none ${activeFilter === f ? 'text-ink nav-active' : 'text-ink-soft hover:text-ink'}`}
-                      style={{
-                        fontFamily: "'General Sans', system-ui, sans-serif",
-                        fontWeight: 500,
-                        fontSize: '14px',
-                        background: 'none',
-                        border: 'none',
-                        padding: 0,
-                        cursor: 'pointer',
-                      }}
-                      aria-current={activeFilter === f ? 'true' : undefined}
-                    >
-                      {f}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-
-          </motion.div>
+            <ul className="flex items-center gap-0" role="list">
+              {FILTERS.map((f, i) => (
+                <li key={f} className="flex items-center flex-shrink-0">
+                  {i > 0 && <span className="mx-2.5 text-ink-soft opacity-30" aria-hidden="true">/</span>}
+                  <button
+                    onClick={() => setActiveFilter(f)}
+                    className={`transition-colors duration-200 focus-visible:outline-none ${activeFilter === f ? 'text-ink nav-active' : 'text-ink-soft hover:text-ink'}`}
+                    style={{
+                      fontFamily: "'General Sans', system-ui, sans-serif",
+                      fontWeight: 500,
+                      fontSize: '14px',
+                      background: 'none',
+                      border: 'none',
+                      padding: 0,
+                      cursor: 'pointer',
+                    }}
+                    aria-current={activeFilter === f ? 'true' : undefined}
+                  >
+                    {f}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </motion.nav>
         </div>
 
         <div
-          ref={scrollRef}
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',

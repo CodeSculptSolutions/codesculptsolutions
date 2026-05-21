@@ -35,33 +35,58 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://codesculptsolutions.com'),
-  title: 'CodeSculptSolutions — Built with Code. Crafted with Purpose.',
+  title: {
+    default: 'CodeSculptSolutions — Built with Code. Crafted with Purpose.',
+    template: '%s — CodeSculptSolutions',
+  },
   description:
-    'A studio in Cebu making web, mobile, and custom systems for teams who care about how things feel — not just how they work.',
-  keywords: ['web development', 'mobile apps', 'UI/UX design', 'React', 'Next.js', 'Cebu', 'Philippines'],
+    'Software studio in Cebu, Philippines building web apps, mobile apps, UI/UX design, and custom systems. React, Next.js, React Native specialists.',
+  keywords: [
+    'web development Cebu',
+    'mobile app development Philippines',
+    'software studio Cebu',
+    'UI/UX design Philippines',
+    'custom software development Cebu',
+    'React developer Philippines',
+    'Next.js developer Cebu',
+    'React Native developer Philippines',
+    'CodeSculptSolutions',
+    'app development Cebu',
+    'web design Cebu',
+    'software company Philippines',
+  ],
   authors: [{ name: 'Jake Lourence A. Villar' }],
+  creator: 'CodeSculptSolutions',
+  publisher: 'CodeSculptSolutions',
+  alternates: {
+    canonical: 'https://codesculptsolutions.com',
+  },
   openGraph: {
-    title: 'CodeSculptSolutions',
-    description: 'Built with Code. Crafted with Purpose.',
+    title: 'CodeSculptSolutions — Built with Code. Crafted with Purpose.',
+    description:
+      'Software studio in Cebu, Philippines building web apps, mobile apps, UI/UX design, and custom systems.',
     url: 'https://codesculptsolutions.com',
     siteName: 'CodeSculptSolutions',
     type: 'website',
     locale: 'en_PH',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'CodeSculptSolutions — Built with Code. Crafted with Purpose.',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CodeSculptSolutions',
-    description: 'Built with Code. Crafted with Purpose.',
+    title: 'CodeSculptSolutions — Built with Code. Crafted with Purpose.',
+    description:
+      'Software studio in Cebu, Philippines building web apps, mobile apps, UI/UX design, and custom systems.',
+    creator: '@codesculpt',
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -77,13 +102,47 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'Organization',
+              '@type': 'ProfessionalService',
               name: 'CodeSculptSolutions',
               url: 'https://codesculptsolutions.com',
-              description: 'A one-person studio making web, mobile, and custom systems.',
+              logo: 'https://codesculptsolutions.com/logo-mark.svg',
+              image: 'https://codesculptsolutions.com/opengraph-image',
+              description:
+                'Software studio in Cebu, Philippines specializing in web apps, mobile apps, UI/UX design, and custom systems.',
               founder: { '@type': 'Person', name: 'Jake Lourence A. Villar' },
-              address: { '@type': 'PostalAddress', addressLocality: 'Mandaue City', addressRegion: 'Cebu', addressCountry: 'PH' },
-              contactPoint: { '@type': 'ContactPoint', email: 'hello@codesculptsolutions.com', contactType: 'customer service' },
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Mandaue City',
+                addressRegion: 'Cebu',
+                addressCountry: 'PH',
+              },
+              areaServed: [
+                { '@type': 'City', name: 'Cebu City' },
+                { '@type': 'Country', name: 'Philippines' },
+                { '@type': 'Place', name: 'Worldwide' },
+              ],
+              serviceType: [
+                'Web Development',
+                'Mobile App Development',
+                'UI/UX Design',
+                'Custom Software Development',
+              ],
+              contactPoint: {
+                '@type': 'ContactPoint',
+                email: 'hello@codesculptsolutions.com',
+                contactType: 'customer service',
+                areaServed: 'PH',
+                availableLanguage: 'English',
+              },
+              knowsAbout: [
+                'React',
+                'Next.js',
+                'React Native',
+                'TypeScript',
+                'UI/UX Design',
+                'Mobile App Development',
+                'Web Development',
+              ],
             }),
           }}
         />
