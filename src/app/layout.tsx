@@ -36,8 +36,8 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   metadataBase: new URL('https://codesculptsolutions.com'),
   title: {
-    default: 'CodeSculptSolutions — Built with Code. Crafted with Purpose.',
-    template: '%s — CodeSculptSolutions',
+    default: 'Code Sculpt Solutions — Built with Code. Crafted with Purpose.',
+    template: '%s — Code Sculpt Solutions',
   },
   description:
     'Software studio in Cebu, Philippines building web apps, mobile apps, UI/UX design, and custom systems. React, Next.js, React Native specialists.',
@@ -50,29 +50,29 @@ export const metadata: Metadata = {
     'React developer Philippines',
     'Next.js developer Cebu',
     'React Native developer Philippines',
-    'CodeSculptSolutions',
+    'Code Sculpt Solutions',
     'app development Cebu',
     'web design Cebu',
     'software company Philippines',
   ],
   authors: [{ name: 'Jake Lourence A. Villar' }],
-  creator: 'CodeSculptSolutions',
-  publisher: 'CodeSculptSolutions',
+  creator: 'Code Sculpt Solutions',
+  publisher: 'Code Sculpt Solutions',
   alternates: {
     canonical: 'https://codesculptsolutions.com',
   },
   openGraph: {
-    title: 'CodeSculptSolutions — Built with Code. Crafted with Purpose.',
+    title: 'Code Sculpt Solutions — Built with Code. Crafted with Purpose.',
     description:
       'Software studio in Cebu, Philippines building web apps, mobile apps, UI/UX design, and custom systems.',
     url: 'https://codesculptsolutions.com',
-    siteName: 'CodeSculptSolutions',
+    siteName: 'Code Sculpt Solutions',
     type: 'website',
     locale: 'en_PH',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CodeSculptSolutions — Built with Code. Crafted with Purpose.',
+    title: 'Code Sculpt Solutions — Built with Code. Crafted with Purpose.',
     description:
       'Software studio in Cebu, Philippines building web apps, mobile apps, UI/UX design, and custom systems.',
     creator: '@codesculpt',
@@ -103,7 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'ProfessionalService',
-              name: 'CodeSculptSolutions',
+              name: 'Code Sculpt Solutions',
               url: 'https://codesculptsolutions.com',
               logo: 'https://codesculptsolutions.com/logo-mark.svg',
               image: 'https://codesculptsolutions.com/opengraph-image',

@@ -72,7 +72,7 @@ export function Nav() {
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
           className="flex items-center gap-2.5 focus-visible:outline-none group"
-          aria-label="CodeSculptSolutions — home"
+          aria-label="Code Sculpt Solutions — home"
         >
           <motion.div
             className="flex items-center"
@@ -89,7 +89,7 @@ export function Nav() {
             className="text-ink font-semibold text-[14px]"
             style={{ fontFamily: "'General Sans', system-ui, sans-serif", letterSpacing: '-0.02em' }}
           >
-            CodeSculptSolutions
+            Code Sculpt Solutions
           </span>
         </a>
 

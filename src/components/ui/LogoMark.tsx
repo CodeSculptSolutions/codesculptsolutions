@@ -25,7 +25,7 @@ export function LogoMark({
       height={height}
       viewBox="0 0 56 72"
       fill="none"
-      aria-label="CodeSculptSolutions"
+      aria-label="Code Sculpt Solutions"
       className={className}
     >
       {/* S bezier curve */}

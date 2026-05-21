@@ -224,7 +224,7 @@ export function About() {
               color: 'var(--color-ink-soft)',
             }}
           >
-            We started CodeSculptSolutions because we kept noticing the same gap. Most studios
+            We started Code Sculpt Solutions because we kept noticing the same gap. Most studios
             either build well or design well — rarely both, and almost never with a sense of
             craft. We wanted somewhere we could take an idea from a Figma file to a production
             deploy without it losing its soul along the way.

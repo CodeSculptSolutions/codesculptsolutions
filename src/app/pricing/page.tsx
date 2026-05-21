@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     canonical: 'https://codesculptsolutions.com/pricing',
   },
   openGraph: {
-    title: 'Pricing — CodeSculptSolutions',
+    title: 'Pricing — Code Sculpt Solutions',
     description:
       'Transparent, project-based pricing for web development, mobile apps, UI/UX design, and custom systems.',
     url: 'https://codesculptsolutions.com/pricing',

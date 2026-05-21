@@ -403,7 +403,7 @@ export function Hero() {
               maxWidth: '460px',
             }}
           >
-            CodeSculptSolutions is a studio in Cebu making web, mobile, and custom
+            Code Sculpt Solutions is a studio in Cebu making web, mobile, and custom
             systems for teams who care about how things feel — not just how they work.
           </motion.p>
 

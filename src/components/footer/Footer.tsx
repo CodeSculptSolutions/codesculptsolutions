@@ -23,7 +23,7 @@ export function Footer() {
                 letterSpacing: '-0.01em',
               }}
             >
-              CodeSculptSolutions
+              Code Sculpt Solutions
             </div>
             <em
               style={{

@@ -355,7 +355,7 @@ export function PricingPage() {
               <span style={{ ...mono, color: 'var(--color-ink-soft)', fontSize: '14px', lineHeight: 1, userSelect: 'none' }}>{'>'}</span>
             </div>
             <span style={{ ...gs, fontWeight: 600, fontSize: '14px', letterSpacing: '-0.02em', color: 'var(--color-ink)' }}>
-              CodeSculptSolutions
+              Code Sculpt Solutions
             </span>
           </Link>
 
@@ -597,7 +597,7 @@ export function PricingPage() {
         <div className="max-w-[1440px] mx-auto px-8 md:px-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
             <div style={{ ...gs, fontWeight: 600, fontSize: '13px', color: 'var(--color-ink)', letterSpacing: '-0.01em' }}>
-              CodeSculptSolutions
+              Code Sculpt Solutions
             </div>
             <em style={{ ...serif, fontStyle: 'italic', fontSize: '13px', color: 'var(--color-ink-soft)' }}>
               Built with Code. Crafted with Purpose.

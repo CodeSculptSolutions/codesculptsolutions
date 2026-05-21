@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'CodeSculptSolutions — Built with Code. Crafted with Purpose.'
+export const alt = 'Code Sculpt Solutions — Built with Code. Crafted with Purpose.'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
