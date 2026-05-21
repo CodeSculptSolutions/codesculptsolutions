@@ -63,6 +63,59 @@ function ArtboardArt() {
   )
 }
 
+function SystemArt() {
+  return (
+    <svg viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" aria-hidden="true">
+      {/* Outer frame */}
+      <rect x="18" y="14" width="244" height="172" rx="6" stroke="#1B1A1F" strokeWidth="1.6" fill="none" />
+      {/* Top nav bar */}
+      <rect x="18" y="14" width="244" height="22" rx="6" fill="#1B1A1F" fillOpacity="0.05" />
+      <rect x="18" y="26" width="244" height="10" fill="#1B1A1F" fillOpacity="0.05" />
+      <rect x="28" y="21" width="22" height="5" rx="2.5" fill="#1B1A1F" fillOpacity="0.22" />
+      <rect x="56" y="21" width="16" height="5" rx="2.5" fill="#1B1A1F" fillOpacity="0.1" />
+      <rect x="78" y="21" width="16" height="5" rx="2.5" fill="#1B1A1F" fillOpacity="0.1" />
+      {/* Sidebar */}
+      <line x1="60" y1="36" x2="60" y2="186" stroke="#1B1A1F" strokeWidth="1" strokeOpacity="0.1" />
+      <rect x="26" y="44" width="24" height="5" rx="2.5" fill="#1B1A1F" fillOpacity="0.22" />
+      <rect x="26" y="56" width="24" height="5" rx="2.5" fill="#1B1A1F" fillOpacity="0.1" />
+      <rect x="26" y="68" width="24" height="5" rx="2.5" fill="#1B1A1F" fillOpacity="0.1" />
+      <rect x="26" y="80" width="24" height="5" rx="2.5" fill="#1B1A1F" fillOpacity="0.1" />
+      <rect x="26" y="92" width="24" height="5" rx="2.5" fill="#1B1A1F" fillOpacity="0.07" />
+      <rect x="26" y="104" width="24" height="5" rx="2.5" fill="#1B1A1F" fillOpacity="0.07" />
+      {/* Stat cards row */}
+      <rect x="70" y="40" width="52" height="34" rx="3" stroke="#1B1A1F" strokeWidth="1" fill="none" strokeOpacity="0.14" />
+      <rect x="76" y="47" width="26" height="4" rx="2" fill="#1B1A1F" fillOpacity="0.08" />
+      <rect x="76" y="56" width="18" height="8" rx="2" fill="#1B1A1F" fillOpacity="0.2" />
+      <rect x="130" y="40" width="52" height="34" rx="3" stroke="#1B1A1F" strokeWidth="1" fill="none" strokeOpacity="0.14" />
+      <rect x="136" y="47" width="26" height="4" rx="2" fill="#1B1A1F" fillOpacity="0.08" />
+      <rect x="136" y="56" width="18" height="8" rx="2" fill="#1B1A1F" fillOpacity="0.2" />
+      <rect x="190" y="40" width="52" height="34" rx="3" stroke="#1B1A1F" strokeWidth="1" fill="none" strokeOpacity="0.14" />
+      <rect x="196" y="47" width="26" height="4" rx="2" fill="#1B1A1F" fillOpacity="0.08" />
+      <rect x="196" y="56" width="18" height="8" rx="2" fill="#1B1A1F" fillOpacity="0.2" />
+      {/* Bar chart */}
+      <rect x="70" y="82" width="172" height="58" rx="3" stroke="#1B1A1F" strokeWidth="1" fill="none" strokeOpacity="0.1" />
+      <line x1="70" y1="110" x2="242" y2="110" stroke="#1B1A1F" strokeWidth="0.6" strokeOpacity="0.08" />
+      <line x1="70" y1="124" x2="242" y2="124" stroke="#1B1A1F" strokeWidth="0.6" strokeOpacity="0.08" />
+      <rect x="82" y="118" width="11" height="22" rx="1.5" fill="#1B1A1F" fillOpacity="0.14" />
+      <rect x="98" y="108" width="11" height="32" rx="1.5" fill="#1B1A1F" fillOpacity="0.2" />
+      <rect x="114" y="114" width="11" height="26" rx="1.5" fill="#1B1A1F" fillOpacity="0.14" />
+      <rect x="130" y="100" width="11" height="40" rx="1.5" fill="#1B1A1F" fillOpacity="0.24" />
+      <rect x="146" y="106" width="11" height="34" rx="1.5" fill="#1B1A1F" fillOpacity="0.17" />
+      <rect x="162" y="96" width="11" height="44" rx="1.5" fill="#1B1A1F" fillOpacity="0.26" />
+      <rect x="178" y="104" width="11" height="36" rx="1.5" fill="#1B1A1F" fillOpacity="0.18" />
+      <rect x="194" y="98" width="11" height="42" rx="1.5" fill="#1B1A1F" fillOpacity="0.22" />
+      <rect x="210" y="110" width="11" height="30" rx="1.5" fill="#1B1A1F" fillOpacity="0.14" />
+      {/* Data table */}
+      <rect x="70" y="148" width="172" height="6" rx="2" fill="#1B1A1F" fillOpacity="0.06" />
+      <rect x="70" y="158" width="172" height="6" rx="2" fill="#1B1A1F" fillOpacity="0.04" />
+      <rect x="70" y="168" width="172" height="6" rx="2" fill="#1B1A1F" fillOpacity="0.04" />
+      <rect x="72" y="150" width="36" height="2" rx="1" fill="#1B1A1F" fillOpacity="0.15" />
+      <rect x="72" y="160" width="28" height="2" rx="1" fill="#1B1A1F" fillOpacity="0.1" />
+      <rect x="72" y="170" width="32" height="2" rx="1" fill="#1B1A1F" fillOpacity="0.1" />
+    </svg>
+  )
+}
+
 function BrowserArt() {
   return (
     <svg viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" aria-hidden="true">
@@ -118,12 +171,13 @@ function LockArt({ hint }: { hint: 'phone' | 'server' | 'browser' }) {
 }
 
 const PROJECTS = [
+  // Row 1
   {
     id: 'budqo',
     name: 'Budqo',
     subtitle: 'Our product',
     description: 'A cross-platform personal finance app — smart budgeting, expense tracking, and financial insights. Ships to iOS and Google Play.',
-    stack: ['React Native', 'Expo 53', 'TypeScript', 'Supabase'],
+    stack: ['React Native', 'Expo 53', 'TypeScript', 'AWS Lambda'],
     tags: ['Product', 'Mobile', 'React Native'],
     filter: ['Mobile'] as FilterKey[],
     href: 'https://budqo.com/',
@@ -131,6 +185,20 @@ const PROJECTS = [
     annotation: '← our favorite from this year',
     accent: '#C9A9C7',
     Art: () => <PhoneArt />,
+  },
+  {
+    id: 'attybihag',
+    name: 'Atty. Bihag',
+    subtitle: 'Krystyll Ann Bihag · Law Practice',
+    description: 'Professional website for a Cebu-based attorney. Civil litigation, family law, criminal defense, corporate, and local government practice. Built to serve and attract clients online.',
+    stack: ['Next.js', 'TypeScript', 'Vercel'],
+    tags: ['Client', 'Web', 'Legal'],
+    filter: ['Web'] as FilterKey[],
+    href: 'https://attybihag.vercel.app/',
+    confidential: false,
+    annotation: null,
+    accent: '#B8C9A9',
+    Art: () => <BrowserArt />,
   },
   {
     id: 'kando',
@@ -146,11 +214,12 @@ const PROJECTS = [
     accent: '#A8BBD6',
     Art: () => <ArtboardArt />,
   },
+  // Row 2
   {
     id: 'b2b-portal',
-    name: 'B2B Portal',
+    name: 'B2B Product Portal',
     subtitle: 'Minokode',
-    description: 'B2B e-commerce portal with complex catalog management, ordering flows, and account structures for business buyers.',
+    description: 'Internal B2B product portal for Minokode — catalog management, ordering flows, and account structures for business buyers. Not public; internal use only.',
     stack: ['Next.js', 'TypeScript', 'Node.js', 'Stripe'],
     tags: ['Partner', 'Web', 'E-commerce'],
     filter: ['Web'] as FilterKey[],
@@ -160,6 +229,35 @@ const PROJECTS = [
     accent: '#F0B8A8',
     Art: () => <BrowserArt />,
   },
+  {
+    id: 'budqo-pro',
+    name: 'Budqo Pro',
+    subtitle: 'Our product · Coming soon',
+    description: 'Enterprise finance management system for businesses, schools, and government — multi-org budgeting, expense tracking, and financial reporting at scale.',
+    stack: ['Tauri', 'Rust', 'TypeScript', 'PostgreSQL'],
+    tags: ['Product', 'Enterprise', 'Systems'],
+    filter: ['Systems'] as FilterKey[],
+    href: null,
+    confidential: false,
+    annotation: '← coming soon',
+    accent: '#C9A9C7',
+    Art: () => <SystemArt />,
+  },
+  {
+    id: 'navix',
+    name: 'Navix',
+    subtitle: 'Our product · Coming soon',
+    description: 'Mobile app that guides Filipinos through government document processes step-by-step — starting with driver\'s license applications. No more confusing LTO instructions.',
+    stack: ['React Native', 'Expo', 'TypeScript'],
+    tags: ['Product', 'Mobile', 'GovTech'],
+    filter: ['Mobile'] as FilterKey[],
+    href: null,
+    confidential: false,
+    annotation: '← coming soon',
+    accent: '#A9C4B4',
+    Art: () => <PhoneArt />,
+  },
+  // Row 3
   {
     id: 'lenders',
     name: 'Lenders',
@@ -175,20 +273,6 @@ const PROJECTS = [
     Art: () => <LockArt hint="phone" />,
   },
   {
-    id: 'mandaue',
-    name: 'Centralized System',
-    subtitle: 'City Gov. of Mandaue · NDA',
-    description: 'Internal platform replacing paper processes across city government offices. Document workflows, inter-office routing. Active deployment.',
-    stack: ['Next.js', 'PostgreSQL', 'Python', 'Docker'],
-    tags: ['Confidential', 'Systems', 'Government'],
-    filter: ['Systems', 'Web'] as FilterKey[],
-    href: null,
-    confidential: true,
-    annotation: null,
-    accent: '#A8BBD6',
-    Art: () => <LockArt hint="server" />,
-  },
-  {
     id: 'shopped',
     name: 'Shopped',
     subtitle: 'Pre-launch · NDA',
@@ -201,6 +285,20 @@ const PROJECTS = [
     annotation: null,
     accent: '#F0B8A8',
     Art: () => <LockArt hint="browser" />,
+  },
+  {
+    id: 'mandaue',
+    name: 'Centralized System',
+    subtitle: 'City Gov. of Mandaue · NDA',
+    description: 'Internal platform replacing paper processes across city government offices. Document workflows, inter-office routing. Active deployment.',
+    stack: ['Next.js', 'PostgreSQL', 'Python', 'Docker'],
+    tags: ['Confidential', 'Systems', 'Government'],
+    filter: ['Systems', 'Web'] as FilterKey[],
+    href: null,
+    confidential: true,
+    annotation: null,
+    accent: '#A8BBD6',
+    Art: () => <LockArt hint="server" />,
   },
 ]
 
@@ -216,35 +314,35 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
 
   const card = (
     <motion.article
-      className="flex flex-col group"
+      className="flex flex-row group"
       style={{
         border: '1px solid rgba(var(--ink-rgb), 0.08)',
-        borderRadius: '4px',
+        borderRadius: '6px',
         overflow: 'hidden',
         backgroundColor: 'var(--color-canvas)',
+        height: '156px',
       }}
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      whileHover={{ y: -5, boxShadow: '0 12px 32px rgba(var(--ink-rgb), 0.08)' }}
-      transition={{ duration: 0.6, ease: EASE_OUT_EXPO, delay: index * 0.07 }}
+      whileHover={{ y: -3, boxShadow: '0 8px 24px rgba(var(--ink-rgb), 0.09)' }}
+      transition={{ duration: 0.5, ease: EASE_OUT_EXPO, delay: index * 0.06 }}
       onMouseEnter={() => { setHovered(true); project.confidential && setShowTooltip(true) }}
       onMouseLeave={() => { setHovered(false); setShowTooltip(false) }}
     >
-      {/* Art area — tints to accent on hover */}
+      {/* Art strip — always tinted, brighter on hover */}
       <div
-        className="relative flex items-center justify-center"
+        className="relative flex items-center justify-center flex-shrink-0"
         style={{
-          height: '200px',
-          padding: '24px 32px',
-          backgroundColor: hovered ? `${project.accent}28` : 'transparent',
-          borderBottom: `1px solid ${hovered ? `${project.accent}40` : 'rgba(var(--ink-rgb), 0.06)'}`,
-          transition: 'background-color 0.35s ease, border-color 0.35s ease',
+          width: '140px',
+          backgroundColor: hovered ? `${project.accent}32` : `${project.accent}16`,
+          borderRight: `1px solid ${hovered ? `${project.accent}55` : `${project.accent}30`}`,
+          transition: 'background-color 0.3s ease, border-color 0.3s ease',
         }}
       >
         <motion.div
-          className="w-full h-full max-w-[220px]"
-          animate={{ scale: hovered ? 1.07 : 1, opacity: hovered ? 0.9 : 0.65 }}
-          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          style={{ width: '90px', height: '90px' }}
+          animate={{ scale: hovered ? 1.06 : 1, opacity: hovered ? 1 : 0.8 }}
+          transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <project.Art />
         </motion.div>
@@ -260,16 +358,16 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
             >
               <span style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: '10px',
+                fontSize: '9px',
                 letterSpacing: '0.04em',
                 color: 'var(--color-canvas)',
                 backgroundColor: 'var(--color-kiln)',
-                padding: '4px 10px',
+                padding: '3px 8px',
                 borderRadius: '2px',
                 display: 'block',
                 whiteSpace: 'nowrap',
               }}>
-                Write to the studio for details
+                Write to the studio
               </span>
             </motion.div>
           )}
@@ -277,93 +375,98 @@ function ProjectCard({ project, isInView, index }: ProjectCardProps) {
       </div>
 
       {/* Content */}
-      <div className="flex flex-col gap-2 flex-1 p-5">
-        <div style={{
-          fontFamily: "'JetBrains Mono', monospace",
-          fontSize: '10px',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          color: 'var(--color-ink-soft)',
-        }}>
-          {project.subtitle}
-        </div>
+      <div className="flex flex-col justify-between flex-1 p-4 min-w-0" style={{ overflow: 'hidden' }}>
+        <div className="flex flex-col gap-1">
+          <div style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: '9px',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: 'var(--color-ink-soft)',
+          }}>
+            {project.subtitle}
+          </div>
 
-        <div className="flex items-start justify-between gap-2">
-          <h3
-            style={{
+          <div className="flex items-start justify-between gap-2">
+            <h3 style={{
               fontFamily: "'General Sans', system-ui, sans-serif",
               fontWeight: 600,
-              fontSize: '20px',
+              fontSize: '18px',
               letterSpacing: '-0.02em',
-              lineHeight: 1.15,
+              lineHeight: 1.2,
               color: hovered ? project.accent : 'var(--color-ink)',
-              transition: 'color 0.3s ease',
-            }}
-          >
-            {project.name}
-          </h3>
-          {project.annotation && (
-            <span
-              className="-rotate-1 flex-shrink-0 mt-0.5"
-              style={{
+              transition: 'color 0.25s ease',
+            }}>
+              {project.name}
+            </h3>
+            {project.annotation && (
+              <span className="-rotate-1 flex-shrink-0" style={{
                 fontFamily: "'Caveat', cursive",
-                fontSize: '13px',
+                fontSize: '12px',
                 color: 'var(--color-ink-soft)',
                 opacity: 0.7,
                 whiteSpace: 'nowrap',
-              }}
-            >
-              {project.annotation}
+              }}>
+                {project.annotation}
+              </span>
+            )}
+          </div>
+
+          <p style={{
+            fontFamily: "'Manrope', system-ui, sans-serif",
+            fontSize: '12px',
+            lineHeight: 1.55,
+            color: 'var(--color-ink-soft)',
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}>
+            {project.description}
+          </p>
+        </div>
+
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1 overflow-hidden" style={{ minWidth: 0 }}>
+            {project.stack.slice(0, 3).map((tech) => (
+              <span key={tech} style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '9px',
+                letterSpacing: '0.03em',
+                color: 'var(--color-ink-soft)',
+                backgroundColor: 'rgba(var(--ink-rgb), 0.06)',
+                padding: '2px 5px',
+                borderRadius: '2px',
+                whiteSpace: 'nowrap',
+              }}>
+                {tech}
+              </span>
+            ))}
+            {project.stack.length > 3 && (
+              <span style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '9px',
+                color: 'var(--color-ink-soft)',
+                opacity: 0.45,
+                whiteSpace: 'nowrap',
+              }}>
+                +{project.stack.length - 3}
+              </span>
+            )}
+          </div>
+
+          {!project.confidential && project.href && (
+            <span className="squiggle-link flex-shrink-0" style={{
+              fontFamily: "'General Sans', system-ui, sans-serif",
+              fontWeight: 500,
+              fontSize: '12px',
+              color: 'var(--color-ink)',
+              whiteSpace: 'nowrap',
+            }}>
+              View →
             </span>
           )}
         </div>
-
-        <p style={{
-          fontFamily: "'Manrope', system-ui, sans-serif",
-          fontSize: '13px',
-          lineHeight: 1.7,
-          color: 'var(--color-ink-soft)',
-          flex: 1,
-        }}>
-          {project.description}
-        </p>
-
-        <div className="flex flex-wrap gap-1.5 pt-1">
-          {project.stack.map((tech) => (
-            <span key={tech} style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: '10px',
-              letterSpacing: '0.04em',
-              color: 'var(--color-ink-soft)',
-              backgroundColor: 'rgba(var(--ink-rgb), 0.06)',
-              padding: '2px 6px',
-              borderRadius: '2px',
-            }}>
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex flex-wrap gap-x-1.5 gap-y-1 pt-1">
-          {project.tags.map((tag, i) => (
-            <span key={tag} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '11px', color: 'var(--color-ink-soft)', letterSpacing: '0.02em' }}>
-              {i > 0 && <span className="opacity-25 mr-1.5">·</span>}{tag}
-            </span>
-          ))}
-        </div>
-
-        {!project.confidential && (
-          <div className="pt-2">
-            <span className="squiggle-link" style={{
-              fontFamily: "'General Sans', system-ui, sans-serif",
-              fontWeight: 500,
-              fontSize: '13px',
-              color: 'var(--color-ink)',
-            }}>
-              View project →
-            </span>
-          </div>
-        )}
       </div>
     </motion.article>
   )
@@ -389,10 +492,10 @@ export function Work() {
   )
 
   return (
-    <section id="work" ref={ref} className="py-14 md:py-40" aria-labelledby="work-heading">
+    <section id="work" ref={ref} className="py-12 md:py-24" aria-labelledby="work-heading">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
 
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <motion.h2
             id="work-heading"
             initial={{ opacity: 0, y: 24 }}
@@ -413,39 +516,49 @@ export function Work() {
             </em>
           </motion.h2>
 
-          <motion.nav
-            aria-label="Work filter"
+          <motion.div
+            className="flex items-center gap-5"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, ease: EASE_OUT_EXPO, delay: 0.2 }}
           >
-            <ul className="flex items-center overflow-x-auto pb-1 gap-0" role="list" style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}>
-              {FILTERS.map((f, i) => (
-                <li key={f} className="flex items-center flex-shrink-0">
-                  {i > 0 && <span className="mx-2.5 text-ink-soft opacity-30" aria-hidden="true">/</span>}
-                  <button
-                    onClick={() => setActiveFilter(f)}
-                    className={`transition-colors duration-200 focus-visible:outline-none ${activeFilter === f ? 'text-ink nav-active' : 'text-ink-soft hover:text-ink'}`}
-                    style={{
-                      fontFamily: "'General Sans', system-ui, sans-serif",
-                      fontWeight: 500,
-                      fontSize: '14px',
-                      background: 'none',
-                      border: 'none',
-                      padding: 0,
-                      cursor: 'pointer',
-                    }}
-                    aria-current={activeFilter === f ? 'true' : undefined}
-                  >
-                    {f}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </motion.nav>
+            <nav aria-label="Work filter">
+              <ul className="flex items-center gap-0" role="list">
+                {FILTERS.map((f, i) => (
+                  <li key={f} className="flex items-center flex-shrink-0">
+                    {i > 0 && <span className="mx-2.5 text-ink-soft opacity-30" aria-hidden="true">/</span>}
+                    <button
+                      onClick={() => setActiveFilter(f)}
+                      className={`transition-colors duration-200 focus-visible:outline-none ${activeFilter === f ? 'text-ink nav-active' : 'text-ink-soft hover:text-ink'}`}
+                      style={{
+                        fontFamily: "'General Sans', system-ui, sans-serif",
+                        fontWeight: 500,
+                        fontSize: '14px',
+                        background: 'none',
+                        border: 'none',
+                        padding: 0,
+                        cursor: 'pointer',
+                      }}
+                      aria-current={activeFilter === f ? 'true' : undefined}
+                    >
+                      {f}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+          </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div
+          ref={scrollRef}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '14px',
+          }}
+        >
           {filtered.map((project, i) => (
             <ProjectCard key={project.id} project={project} isInView={isInView} index={i} />
           ))}
