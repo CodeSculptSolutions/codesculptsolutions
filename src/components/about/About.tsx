@@ -1,31 +1,8 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef, useEffect, useState } from 'react'
+import { useRef } from 'react'
 import { fadeUp, staggerContainer, EASE_OUT_EXPO } from '@/lib/motion'
-
-function useCountUp(target: number, duration: number, active: boolean) {
-  const [count, setCount] = useState(0)
-  useEffect(() => {
-    if (!active) return
-    let start: number | null = null
-    const step = (ts: number) => {
-      if (!start) start = ts
-      const p = Math.min((ts - start) / duration, 1)
-      const eased = 1 - Math.pow(1 - p, 3)
-      setCount(Math.floor(eased * target))
-      if (p < 1) requestAnimationFrame(step)
-    }
-    requestAnimationFrame(step)
-  }, [active, target, duration])
-  return count
-}
-
-function CountUpNumber({ target, active, style }: { target: number; active: boolean; style: React.CSSProperties }) {
-  const count = useCountUp(target, 2400, active)
-  const display = count >= target ? '1M+' : count.toLocaleString()
-  return <div style={style}>{display}</div>
-}
 
 type StackTok = { name: string; mono: boolean }
 
@@ -94,11 +71,6 @@ const STACK_CATEGORIES = [
   { label: 'Other',          dot: 'rgba(74,71,81,0.45)',  chips: ['Python', 'Flask', 'PyQt', 'WordPress'] },
 ]
 
-const STATS = [
-  { id: 'projects', number: '30+',  label: 'projects worked on', accent: false },
-  { id: 'lines',    number: null,   label: 'lines of code',      accent: true,  target: 1_000_000 },
-  { id: 'years',    number: '5+',   label: 'years in the craft', accent: false },
-]
 
 const monoLabel: React.CSSProperties = {
   fontFamily: "'JetBrains Mono', monospace",
@@ -113,10 +85,93 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="about" ref={ref} className="py-16 md:py-44" aria-labelledby="about-heading">
+    <section id="about" ref={ref} className="relative overflow-hidden py-16 md:py-44" aria-labelledby="about-heading">
+
+      {/* Floating accent shapes — desktop only */}
+      <div className="pointer-events-none select-none hidden lg:block" aria-hidden="true">
+
+        {/* ── Code symbols ── */}
+
+        {/* </> */}
+        <motion.div
+          style={{ position: 'absolute', top: '7%', right: '8%', fontFamily: "'JetBrains Mono', monospace", fontSize: '44px', fontWeight: 700, color: '#C9A9C7', opacity: 0.32, letterSpacing: '-0.02em', lineHeight: 1 }}
+          animate={{ y: [0, -24, 0], x: [0, 6, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          {'</>'}
+        </motion.div>
+
+        {/* { } */}
+        <motion.div
+          style={{ position: 'absolute', top: '55%', right: '5%', fontFamily: "'JetBrains Mono', monospace", fontSize: '30px', fontWeight: 400, color: '#A8BBD6', opacity: 0.36, letterSpacing: '0.08em', lineHeight: 1 }}
+          animate={{ y: [0, 20, 0], x: [0, -5, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+        >
+          {'{ }'}
+        </motion.div>
+
+        {/* // craft */}
+        <motion.div
+          style={{ position: 'absolute', top: '20%', right: '17%', fontFamily: "'JetBrains Mono', monospace", fontSize: '13px', color: 'var(--color-ink-soft)', opacity: 0.35, letterSpacing: '0.04em' }}
+          animate={{ y: [0, -16, 0], opacity: [0.35, 0.15, 0.35] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
+        >
+          {'// craft'}
+        </motion.div>
+
+        {/* ( ) => */}
+        <motion.div
+          style={{ position: 'absolute', top: '42%', right: '13%', fontFamily: "'JetBrains Mono', monospace", fontSize: '20px', fontWeight: 700, color: '#F0B8A8', opacity: 0.38, letterSpacing: '0.02em' }}
+          animate={{ y: [0, 18, 0], x: [0, 8, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 2.5 }}
+        >
+          {'( ) =>'}
+        </motion.div>
+
+        {/* Binary block */}
+        <motion.div
+          style={{ position: 'absolute', top: '65%', right: '18%', fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: 'var(--color-ink-soft)', opacity: 0.22, letterSpacing: '0.14em', lineHeight: 1.8 }}
+          animate={{ y: [0, -14, 0] }}
+          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+        >
+          {'01101'}<br />{'11010'}<br />{'00101'}
+        </motion.div>
+
+        {/* ── Geometric shapes ── */}
+
+        {/* Clay circle outline */}
+        <motion.div
+          style={{ position: 'absolute', top: '4%', right: '22%', width: '72px', height: '72px', borderRadius: '50%', border: '2px solid #C9A9C7', opacity: 0.55 }}
+          animate={{ y: [0, -20, 0], rotate: [0, 15, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+        />
+
+        {/* Mist diamond */}
+        <motion.div
+          style={{ position: 'absolute', top: '30%', right: '23%', width: '20px', height: '20px', backgroundColor: '#A8BBD6', opacity: 0.55, rotate: 45 }}
+          animate={{ y: [0, 22, 0], rotate: [45, 90, 45] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+        />
+
+        {/* Bloom dot */}
+        <motion.div
+          style={{ position: 'absolute', top: '13%', right: '6%', width: '11px', height: '11px', borderRadius: '50%', backgroundColor: '#F0B8A8', opacity: 0.7 }}
+          animate={{ y: [0, -18, 0], x: [0, 5, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
+        />
+
+        {/* Large ghost circle */}
+        <motion.div
+          style={{ position: 'absolute', top: '-10%', right: '-6%', width: '360px', height: '360px', borderRadius: '50%', border: '1.5px solid rgba(201,169,199,0.2)' }}
+          animate={{ scale: [1, 1.06, 1], rotate: [0, 12, 0] }}
+          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+        />
+
+      </div>
+
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
 
-        {/* ── Top row: label + headline ── */}
+        {/* ── Label + Headline ── */}
         <div className="mb-12 md:mb-16">
           <motion.div
             style={monoLabel}
@@ -136,11 +191,10 @@ export function About() {
             style={{
               fontFamily: "'General Sans', system-ui, sans-serif",
               fontWeight: 700,
-              fontSize: 'clamp(48px, 6.5vw, 88px)',
-              lineHeight: 1.02,
-              letterSpacing: '-0.03em',
+              fontSize: 'clamp(48px, 8.5vw, 120px)',
+              lineHeight: 1.0,
+              letterSpacing: '-0.04em',
               color: 'var(--color-ink)',
-              maxWidth: '820px',
             }}
           >
             Tech with the{' '}
@@ -150,67 +204,35 @@ export function About() {
                 fontStyle: 'italic',
                 color: '#C9A9C7',
                 fontOpticalSizing: 'auto',
+                position: 'relative',
+                display: 'inline-block',
               }}
             >
               soul
-            </em>{' '}
+              <motion.span
+                style={{
+                  position: 'absolute',
+                  bottom: '2px',
+                  left: 0,
+                  right: 0,
+                  height: '2px',
+                  backgroundColor: '#C9A9C7',
+                  transformOrigin: 'left',
+                  display: 'block',
+                }}
+                initial={{ scaleX: 0 }}
+                animate={isInView ? { scaleX: 1 } : {}}
+                transition={{ duration: 0.7, ease: EASE_OUT_EXPO, delay: 0.6 }}
+              />
+            </em>
+            <br />
             of an artist.
           </motion.h2>
         </div>
 
-        {/* ── Stats bar ── */}
+        {/* ── Body copy ── */}
         <motion.div
-          className="grid grid-cols-3 mb-14 md:mb-20"
-          style={{ borderTop: '1px solid rgba(var(--ink-rgb), 0.1)', borderBottom: '1px solid rgba(var(--ink-rgb), 0.1)' }}
-          variants={staggerContainer}
-          initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
-        >
-          {STATS.map((stat, i) => {
-            const numStyle: React.CSSProperties = {
-              fontFamily: "'General Sans', system-ui, sans-serif",
-              fontWeight: 700,
-              fontSize: 'clamp(36px, 4.5vw, 64px)',
-              lineHeight: 1.0,
-              letterSpacing: '-0.04em',
-              color: stat.accent ? '#C9A9C7' : 'var(--color-ink)',
-            }
-            return (
-              <motion.div
-                key={stat.id}
-                variants={fadeUp}
-                className="py-6 md:py-8"
-                style={{
-                  paddingLeft: i === 0 ? 0 : '24px',
-                  paddingRight: i === STATS.length - 1 ? 0 : '24px',
-                  borderRight: i < STATS.length - 1 ? '1px solid rgba(var(--ink-rgb), 0.1)' : 'none',
-                }}
-              >
-                {stat.target ? (
-                  <CountUpNumber target={stat.target} active={isInView} style={numStyle} />
-                ) : (
-                  <div style={numStyle}>{stat.number}</div>
-                )}
-                <div
-                  className="mt-2"
-                  style={{
-                    fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: '10px',
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    color: 'var(--color-ink-soft)',
-                  }}
-                >
-                  {stat.label}
-                </div>
-              </motion.div>
-            )
-          })}
-        </motion.div>
-
-        {/* ── Body copy — 2 col ── */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-5 mb-20 md:mb-28 max-w-[1100px]"
+          className="flex flex-col gap-5 mb-20 md:mb-28"
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
@@ -218,16 +240,17 @@ export function About() {
           <motion.p
             variants={fadeUp}
             style={{
-              fontFamily: "'Manrope', system-ui, sans-serif",
-              fontSize: '17px',
-              lineHeight: 1.78,
-              color: 'var(--color-ink-soft)',
+              fontFamily: "'General Sans', system-ui, sans-serif",
+              fontWeight: 500,
+              fontSize: 'clamp(19px, 1.8vw, 22px)',
+              lineHeight: 1.55,
+              color: 'var(--color-ink)',
+              letterSpacing: '-0.01em',
             }}
           >
-            We started Code Sculpt Solutions because we kept noticing the same gap. Most studios
-            either build well or design well — rarely both, and almost never with a sense of
-            craft. We wanted somewhere we could take an idea from a Figma file to a production
-            deploy without it losing its soul along the way.
+            Code Sculpt Solutions is a solo studio out of Cebu, Philippines. One builder,
+            no handoffs — every project runs from the first wireframe to the final deploy
+            through the same hands.
           </motion.p>
           <motion.p
             variants={fadeUp}
@@ -238,10 +261,10 @@ export function About() {
               color: 'var(--color-ink-soft)',
             }}
           >
-            Since 2021 we&apos;ve shipped data systems for a city government, led design on a
-            fintech product, built mobile apps in React Native, and made production templates
-            for software teams in Australia. Different stacks, different industries — same
-            obsession with making things that feel intentional.
+            Since 2021 we&apos;ve shipped a data management system for city government,
+            led design on a fintech product, built mobile apps in React Native, and made
+            production templates for software teams in Australia. Different stacks,
+            different industries — same obsession with craft.
           </motion.p>
         </motion.div>
 
