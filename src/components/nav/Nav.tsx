@@ -112,6 +112,7 @@ export function Nav() {
               </li>
             )
           })}
+          { /* 
           <li>
             <Link
               href="/pricing"
@@ -121,6 +122,7 @@ export function Nav() {
               Pricing
             </Link>
           </li>
+        */ }
           <li>
             <button
               onClick={toggle}
